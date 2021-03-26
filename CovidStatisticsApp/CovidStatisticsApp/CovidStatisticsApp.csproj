@@ -124,6 +124,9 @@
   <ItemGroup>
     <Resource Include="Views\user.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\covid graph.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

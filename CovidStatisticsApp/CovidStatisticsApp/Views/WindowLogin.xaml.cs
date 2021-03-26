@@ -23,12 +23,9 @@ namespace CovidStatisticsApp.Views
         {
             InitializeComponent();
             //Set colors of backgrounds in Login Window
-            ButtonSignIn.Background = Brushes.Yellow;
-            ButtonChangePassword.Background = Brushes.Yellow;
-            ButtonSignUp.Background = Brushes.Yellow;
-            TextBoxFirstName.Background = Brushes.Yellow;
-            TextBoxLastName.Background = Brushes.Yellow;
-            PasswordBoxPassword.Background = Brushes.Yellow;
+            ButtonSignIn.Background = Brushes.IndianRed;
+            ButtonChangePassword.Background = Brushes.IndianRed;
+            ButtonSignUp.Background = Brushes.IndianRed;
         }
 
         /// <summary>
