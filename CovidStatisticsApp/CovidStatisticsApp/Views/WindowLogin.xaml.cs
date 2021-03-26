@@ -22,6 +22,23 @@ namespace CovidStatisticsApp.Views
         public WindowLogin()
         {
             InitializeComponent();
+            //Set colors of backgrounds in Login Window
+            ButtonSignIn.Background = Brushes.Yellow;
+            ButtonChangePassword.Background = Brushes.Yellow;
+            ButtonSignUp.Background = Brushes.Yellow;
+            TextBoxFirstName.Background = Brushes.Yellow;
+            TextBoxLastName.Background = Brushes.Yellow;
+            PasswordBoxPassword.Background = Brushes.Yellow;
+        }
+
+        /// <summary>
+        /// Sign in button check password and personal data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
