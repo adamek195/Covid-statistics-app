@@ -122,10 +122,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\user.png" />
+    <Resource Include="Views\covid_img.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\covid graph.png" />
+    <Resource Include="Views\user_login_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

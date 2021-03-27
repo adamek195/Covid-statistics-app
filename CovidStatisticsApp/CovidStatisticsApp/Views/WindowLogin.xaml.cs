@@ -28,10 +28,5 @@ namespace CovidStatisticsApp.Views
         {
 
         }
-
-        private void TextBoxFirstName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
