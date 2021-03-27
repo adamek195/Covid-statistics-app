@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CovidStatisticsApp.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,17 +17,38 @@ namespace CovidStatisticsApp.Views
 {
     public partial class WindowLogin : Window
     {
+        private readonly UsersRepository usersRepository;
+
         public WindowLogin()
         {
+            usersRepository = new UsersRepository();
             InitializeComponent();
-            ButtonSignIn.Background = Brushes.IndianRed;
-            ButtonChangePassword.Background = Brushes.IndianRed;
-            ButtonSignUp.Background = Brushes.IndianRed;
+
         }
 
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
         {
+            string firstName = TextBoxFirstName.Text;
+            string lastName = TextBoxLastName.Text;
+            string password = PasswordBoxPassword.Password;
 
+            bool logged = usersRepository.SignIn(firstName, lastName, password);
+
+            if (logged)
+            {
+                MessageBox.Show("You have logged in!", "Information", MessageBoxButton.OK, MessageBoxImage.Information );
+                TextBoxFirstName.Text = "";
+                TextBoxLastName.Text = "";
+                PasswordBoxPassword.Password = "";
+            }
+            else
+            {
+                //Czyscimy dane
+                MessageBox.Show("Invalid username or password!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                TextBoxFirstName.Text = "";
+                TextBoxLastName.Text = "";
+                PasswordBoxPassword.Password = "";
+            }
         }
     }
 }

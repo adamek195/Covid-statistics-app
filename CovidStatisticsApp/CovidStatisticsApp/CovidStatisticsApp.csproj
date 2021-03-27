@@ -69,9 +69,16 @@
     <Compile Include="Migrations\202103261755560_InitialMigration.designer.cs">
       <DependentUpon>202103261755560_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103271126369_AddEmial.cs" />
+    <Compile Include="Migrations\202103271126369_AddEmial.designer.cs">
+      <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Views\WindowMain.xaml.cs">
       <DependentUpon>WindowMain.xaml</DependentUpon>
     </Compile>
@@ -108,6 +115,9 @@
     <EmbeddedResource Include="Migrations\202103261755560_InitialMigration.resx">
       <DependentUpon>202103261755560_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103271126369_AddEmial.resx">
+      <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,6 +138,7 @@
   <ItemGroup>
     <Resource Include="Images\user_login_icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

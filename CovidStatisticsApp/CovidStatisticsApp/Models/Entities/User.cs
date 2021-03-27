@@ -20,6 +20,8 @@ namespace CovidStatisticsApp.Models.Entities
         [Required]
         [MaxLength(64)]
         public string Password { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
 
     }
 }
