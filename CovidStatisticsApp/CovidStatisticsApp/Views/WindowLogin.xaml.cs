@@ -23,6 +23,7 @@ namespace CovidStatisticsApp.Views
         {
             usersRepository = new UsersRepository();
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
         }
 
@@ -36,19 +37,24 @@ namespace CovidStatisticsApp.Views
 
             if (logged)
             {
-                MessageBox.Show("You have logged in!", "Information", MessageBoxButton.OK, MessageBoxImage.Information );
+                MessageBox.Show("You have logged in!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 TextBoxFirstName.Text = "";
                 TextBoxLastName.Text = "";
                 PasswordBoxPassword.Password = "";
             }
             else
             {
-                //Czyscimy dane
-                MessageBox.Show("Invalid username or password!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Invalid username or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 TextBoxFirstName.Text = "";
                 TextBoxLastName.Text = "";
                 PasswordBoxPassword.Password = "";
             }
+        }
+
+        private void ButtonChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            WindowChangePassword windowChangePassword = new WindowChangePassword();
+            windowChangePassword.Show();
         }
     }
 }

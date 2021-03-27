@@ -29,7 +29,7 @@
                     <Setter Property="Cursor" Value="Hand" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FF4CDEFF" />
+                            <Setter Property="Background" Value="Gray" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -57,7 +57,7 @@
                     <Setter Property="Cursor" Value="Hand" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FF4CDEFF" />
+                            <Setter Property="Background" Value="Gray" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -71,9 +71,8 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label x:Name="LabelSignUp" Content="" HorizontalAlignment="Left" Margin="154,321,0,0" VerticalAlignment="Top" Width="134" FontFamily="..\Fonts\#Dosis"/>
         <Button x:Name="ButtonChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="371,324,0,0" VerticalAlignment="Top" Width="104"
-                Foreground="White" FontWeight="Medium" FontSize="11">
+                Foreground="White" FontWeight="Medium" FontSize="11" Click="ButtonChangePassword_Click">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
@@ -81,7 +80,7 @@
                     <Setter Property="Cursor" Value="Hand" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FF4CDEFF" />
+                            <Setter Property="Background" Value="Gray" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -96,7 +95,7 @@
             </Button.Template>
         </Button>
         <Label x:Name="LabelChangePassword" Content="Forget password?" HorizontalAlignment="Left" Margin="241,319,0,0" VerticalAlignment="Top" FontFamily="..\Fonts\#Dosis"/>
-        <Label x:Name="LabelSignUp1" Content="Don't have an account?" HorizontalAlignment="Left" Margin="216,295,0,0" VerticalAlignment="Top" FontFamily="..\Fonts\#Dosis"/>
+        <Label x:Name="LabelSignUp" Content="Don't have an account?" HorizontalAlignment="Left" Margin="216,295,0,0" VerticalAlignment="Top" FontFamily="..\Fonts\#Dosis"/>
         <Image x:Name="ImageCovid" HorizontalAlignment="Left" Height="66" Margin="361,61,0,0" VerticalAlignment="Top" Width="99" Source="..\Images\covid_img.png" />
     </Grid>
 </Window>
