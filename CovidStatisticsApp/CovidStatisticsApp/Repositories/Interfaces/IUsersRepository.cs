@@ -10,5 +10,6 @@ namespace CovidStatisticsApp.Repositories.Interfaces
     {
         bool SignIn(string firstName, string lastName, string password);
         bool ChangePassword(string firstName, string lastName, string email, string newPassword);
+        bool SignUp(string firstName, string lastName, string email, string password);
     }
 }

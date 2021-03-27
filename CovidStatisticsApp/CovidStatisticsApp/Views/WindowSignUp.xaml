@@ -23,7 +23,7 @@
         <PasswordBox x:Name="PasswordBoxPasswordConfirm" HorizontalAlignment="Left" Margin="340,291,0,0" VerticalAlignment="Top" Height="23" Width="150" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
         <Label x:Name="LabelCovidApp" Content="Sign up to Covid-19 statistics app!" HorizontalAlignment="Left" Margin="195,10,0,0" VerticalAlignment="Top" Width="310" FontFamily="..\Fonts\#Dosis" FontSize="22"/>
         <Button x:Name="ButtonSignUp" Content="Sign up" HorizontalAlignment="Left" Margin="261,321,0,0" VerticalAlignment="Top" Width="125"
-                Foreground="White" FontWeight="Medium" FontSize="14">
+                Foreground="White" FontWeight="Medium" FontSize="14" Click="ButtonSignUp_Click">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>

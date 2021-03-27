@@ -24,7 +24,6 @@ namespace CovidStatisticsApp.Views
             usersRepository = new UsersRepository();
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
         }
 
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
@@ -41,6 +40,8 @@ namespace CovidStatisticsApp.Views
                 TextBoxFirstName.Text = "";
                 TextBoxLastName.Text = "";
                 PasswordBoxPassword.Password = "";
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
             }
             else
             {

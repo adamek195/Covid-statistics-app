@@ -28,5 +28,37 @@ namespace CovidStatisticsApp.Views
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+
+        private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            string firstName = TextBoxFirstName.Text;
+            string lastName = TextBoxLastName.Text;
+            string email = TextBoxEmail.Text;
+            string newPassword = PasswordBoxPassword.Password;
+            string newPasswordConfirm = PasswordBoxPasswordConfirm.Password;
+
+
+            if (newPassword == newPasswordConfirm)
+            {
+                if (usersRepository.SignUp(firstName, lastName, email, newPassword))
+                {
+                    MessageBox.Show("You signed up!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("The user with such data already exists!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Passwords are not the same!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            TextBoxFirstName.Text = "";
+            TextBoxLastName.Text = "";
+            TextBoxEmail.Text = "";
+            PasswordBoxPassword.Password = "";
+            PasswordBoxPasswordConfirm.Password = "";
+        }
     }
 }

@@ -24,5 +24,25 @@ namespace CovidStatisticsApp.Repositories
 
             return DbContext.SaveChanges() > 0;
         }
+
+        public bool SignUp(string firstName, string lastName, string email, string password)
+        {
+            User userToAdd = new User()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                Password = password
+            };
+
+            User foundedUser = DbContext.Users.FirstOrDefault(u => u.FirstName == firstName && u.LastName == lastName
+                                && u.Email == email && u.Password == password);
+            if (foundedUser != null)
+                return false;
+
+            DbContext.Users.Add(userToAdd);
+
+            return DbContext.SaveChanges() > 0;
+        }
     }
 }
