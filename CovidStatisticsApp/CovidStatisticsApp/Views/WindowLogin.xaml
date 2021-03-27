@@ -15,20 +15,21 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Height="23" Margin="340,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.493,0.478"/>
-        <TextBox x:Name="TextBoxLastName" HorizontalAlignment="Left" Height="23" Margin="340,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="PasswordBoxPassword" HorizontalAlignment="Left" Margin="340,236,0,0" VerticalAlignment="Top" Height="25" Width="120"/>
-        <Label x:Name="LabelCovidApp" Content="Welcome to covid statistics app!" HorizontalAlignment="Left" Margin="193,10,0,0" VerticalAlignment="Top" Width="267" FontFamily="Segoe UI Black" FontSize="16"/>
+
+        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Height="23" Margin="340,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" TextChanged="TextBoxFirstName_TextChanged" />
+        <TextBox x:Name="TextBoxLastName" HorizontalAlignment="Left" Height="23" Margin="340,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
+        <PasswordBox x:Name="PasswordBoxPassword" HorizontalAlignment="Left" Margin="340,228,0,0" VerticalAlignment="Top" Height="25" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
+        <Label x:Name="LabelCovidApp" Content="Welcome to COVID-19 statistics app!" HorizontalAlignment="Left" Margin="191,10,0,0" VerticalAlignment="Top" Width="298" FontFamily="Segoe UI Black" FontSize="16"/>
         <Button x:Name="ButtonSignIn" Content="Sign In" HorizontalAlignment="Left" Margin="263,271,0,0" VerticalAlignment="Top" Width="118" Click="ButtonSignIn_Click"/>
         <Label x:Name="LabelFirstName" Content="First Name" HorizontalAlignment="Left" Margin="216,145,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="216,187,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
-        <Label x:Name="LabelPassword" Content="Password" HorizontalAlignment="Left" Margin="216,232,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
-        <Image HorizontalAlignment="Left" Height="66" Margin="227,61,0,0" VerticalAlignment="Top" Width="83" Source="user.png"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="216,185,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
+        <Label x:Name="LabelPassword" Content="Password" HorizontalAlignment="Left" Margin="216,225,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
+        <Image HorizontalAlignment="Left" Height="66" Margin="227,61,0,0" VerticalAlignment="Top" Width="83" Source="user_login_icon.png"/>
         <Button x:Name="ButtonSignUp" Content="Sign Up" HorizontalAlignment="Left" Margin="371,298,0,0" VerticalAlignment="Top" Width="104"/>
         <Label x:Name="LabelSignUp" Content="" HorizontalAlignment="Left" Margin="154,321,0,0" VerticalAlignment="Top" Width="134"/>
         <Button x:Name="ButtonChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="371,324,0,0" VerticalAlignment="Top" Width="104"/>
         <Label x:Name="LabelChangePassword" Content="Forget password?" HorizontalAlignment="Left" Margin="247,318,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LabelSignUp1" Content="Don't have an account?" HorizontalAlignment="Left" Margin="216,295,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="66" Margin="340,61,0,0" VerticalAlignment="Top" Width="120" Source="covid graph.png" />
+        <Image HorizontalAlignment="Left" Height="66" Margin="361,61,0,0" VerticalAlignment="Top" Width="99" Source="covid_img.png" />
     </Grid>
 </Window>
