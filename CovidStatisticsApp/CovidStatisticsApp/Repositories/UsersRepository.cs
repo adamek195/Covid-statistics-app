@@ -12,5 +12,17 @@ namespace CovidStatisticsApp.Repositories
             User user = DbContext.Users.SingleOrDefault(u => u.FirstName == firstName && u.LastName == lastName && u.Password == password);
             return user != null;
         }
+
+        public bool ChangePassword(string firstName, string lastName, string email, string newPassword)
+        {
+            User userToEdit = DbContext.Users.FirstOrDefault(u => u.FirstName == firstName && u.LastName == lastName && u.Email == email);
+
+            if (userToEdit == null)
+                return false;
+
+            userToEdit.Password = newPassword;
+
+            return DbContext.SaveChanges() > 0;
+        }
     }
 }

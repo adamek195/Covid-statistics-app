@@ -18,7 +18,7 @@
 
         <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Height="23" Margin="340,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
         <TextBox x:Name="TextBoxLastName" HorizontalAlignment="Left" Height="23" Margin="340,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
-        <PasswordBox x:Name="PasswordBoxPassword" HorizontalAlignment="Left" Margin="340,228,0,0" VerticalAlignment="Top" Height="25" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
+        <PasswordBox x:Name="PasswordBoxPassword" HorizontalAlignment="Left" Margin="340,228,0,0" VerticalAlignment="Top" Height="23" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
         <Label x:Name="LabelCovidApp" Content="Welcome to COVID-19 statistics app!" HorizontalAlignment="Left" Margin="191,10,0,0" VerticalAlignment="Top" Width="310" FontFamily="..\Fonts\#Dosis" FontSize="22"/>
         <Button x:Name="ButtonSignIn" Content="Sign In" HorizontalAlignment="Left" Margin="263,271,0,0" VerticalAlignment="Top" Width="118"
                 Foreground="White" FontWeight="Medium" FontSize="14" Click="ButtonSignIn_Click">

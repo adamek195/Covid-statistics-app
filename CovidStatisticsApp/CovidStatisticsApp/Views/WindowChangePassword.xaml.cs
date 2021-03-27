@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CovidStatisticsApp.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,45 @@ namespace CovidStatisticsApp.Views
     /// </summary>
     public partial class WindowChangePassword : Window
     {
+        private readonly UsersRepository usersRepository;
+
         public WindowChangePassword()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            usersRepository = new UsersRepository();
+        }
+
+        private void ButtonNewPassword_Click(object sender, RoutedEventArgs e)
+        {
+            string firstName = TextBoxFirstName.Text;
+            string lastName = TextBoxLastName.Text;
+            string email = TextBoxEmail.Text;
+            string newPassword = PasswordBoxPassword.Password;
+            string newPasswordConfirm = PasswordBoxPasswordConfirm.Password;
+
+
+            if (newPassword == newPasswordConfirm)
+            {
+                if (usersRepository.ChangePassword(firstName, lastName, email, newPassword))
+                {
+                    MessageBox.Show("You changed password!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("There is no such user in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Passwords are not the same!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            TextBoxFirstName.Text = "";
+            TextBoxLastName.Text = "";
+            TextBoxEmail.Text = "";
+            PasswordBoxPassword.Password = "";
+            PasswordBoxPasswordConfirm.Password = "";
         }
     }
 }
