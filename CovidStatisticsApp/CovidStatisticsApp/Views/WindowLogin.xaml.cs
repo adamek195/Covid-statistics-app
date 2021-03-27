@@ -56,5 +56,11 @@ namespace CovidStatisticsApp.Views
             WindowChangePassword windowChangePassword = new WindowChangePassword();
             windowChangePassword.Show();
         }
+
+        private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            WindowSignUp windowSignUp = new WindowSignUp();
+            windowSignUp.Show();
+        }
     }
 }
