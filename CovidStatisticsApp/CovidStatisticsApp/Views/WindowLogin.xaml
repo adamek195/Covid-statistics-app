@@ -19,17 +19,84 @@
         <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Height="23" Margin="340,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
         <TextBox x:Name="TextBoxLastName" HorizontalAlignment="Left" Height="23" Margin="340,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
         <PasswordBox x:Name="PasswordBoxPassword" HorizontalAlignment="Left" Margin="340,228,0,0" VerticalAlignment="Top" Height="25" Width="120" Padding="2" BorderThickness="1.5" BorderBrush="Gray"/>
-        <Label x:Name="LabelCovidApp" Content="Welcome to COVID-19 statistics app!" HorizontalAlignment="Left" Margin="191,10,0,0" VerticalAlignment="Top" Width="298" FontFamily="Segoe UI Black" FontSize="16"/>
-        <Button x:Name="ButtonSignIn" Content="Sign In" HorizontalAlignment="Left" Margin="263,271,0,0" VerticalAlignment="Top" Width="118" Click="ButtonSignIn_Click"/>
-        <Label x:Name="LabelFirstName" Content="First Name" HorizontalAlignment="Left" Margin="216,145,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
-        <Label x:Name="LabelLastName" Content="Last Name" HorizontalAlignment="Left" Margin="216,185,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
-        <Label x:Name="LabelPassword" Content="Password" HorizontalAlignment="Left" Margin="216,225,0,0" VerticalAlignment="Top" Width="94" FontFamily="Segoe UI Black" FontSize="14"/>
-        <Image x:Name="ImageUser" HorizontalAlignment="Left" Height="66" Margin="227,61,0,0" VerticalAlignment="Top" Width="83" Source="user_login_icon.png"/>
-        <Button x:Name="ButtonSignUp" Content="Sign Up" HorizontalAlignment="Left" Margin="371,298,0,0" VerticalAlignment="Top" Width="104"/>
-        <Label x:Name="LabelSignUp" Content="" HorizontalAlignment="Left" Margin="154,321,0,0" VerticalAlignment="Top" Width="134"/>
-        <Button x:Name="ButtonChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="371,324,0,0" VerticalAlignment="Top" Width="104"/>
-        <Label x:Name="LabelChangePassword" Content="Forget password?" HorizontalAlignment="Left" Margin="247,318,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="LabelSignUp1" Content="Don't have an account?" HorizontalAlignment="Left" Margin="216,295,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="ImageCovid" HorizontalAlignment="Left" Height="66" Margin="361,61,0,0" VerticalAlignment="Top" Width="99" Source="covid_img.png" />
+        <Label x:Name="LabelCovidApp" Content="Welcome to COVID-19 statistics app!" HorizontalAlignment="Left" Margin="191,10,0,0" VerticalAlignment="Top" Width="310" FontFamily="..\Fonts\#Dosis" FontSize="22"/>
+        <Button x:Name="ButtonSignIn" Content="Sign In" HorizontalAlignment="Left" Margin="263,271,0,0" VerticalAlignment="Top" Width="118"
+                Foreground="White" FontWeight="Medium" FontSize="14" Click="ButtonSignIn_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
+                    <Setter Property="Background" Value="#FE6584"/>
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF4C70" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="100" Height="25" CornerRadius="12" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Label x:Name="LabelFirstName" Content="First Name" HorizontalAlignment="Left" Margin="216,145,0,0" VerticalAlignment="Top" Width="94" FontFamily="..\Fonts\#Dosis" FontSize="14"/>
+        <Label x:Name="LabelLastName" Content="Last Name" HorizontalAlignment="Left" Margin="216,185,0,0" VerticalAlignment="Top" Width="94" FontFamily="..\Fonts\#Dosis" FontSize="14"/>
+        <Label x:Name="LabelPassword" Content="Password" HorizontalAlignment="Left" Margin="216,225,0,0" VerticalAlignment="Top" Width="94" FontFamily="..\Fonts\#Dosis" FontSize="14"/>
+        <Image x:Name="ImageUser" HorizontalAlignment="Left" Height="66" Margin="227,61,0,0" VerticalAlignment="Top" Width="83" Source="..\Images\user_login_icon.png"/>
+        <Button x:Name="ButtonSignUp" Content="Sign Up" HorizontalAlignment="Left" Margin="371,298,0,0" VerticalAlignment="Top" Width="104"
+                Foreground="White" FontWeight="Medium" FontSize="11">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
+                    <Setter Property="Background" Value="#FE6584"/>
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF4C70" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="95" Height="20" CornerRadius="12" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label x:Name="LabelSignUp" Content="" HorizontalAlignment="Left" Margin="154,321,0,0" VerticalAlignment="Top" Width="134" FontFamily="..\Fonts\#Dosis"/>
+        <Button x:Name="ButtonChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="371,324,0,0" VerticalAlignment="Top" Width="104"
+                Foreground="White" FontWeight="Medium" FontSize="11">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
+                    <Setter Property="Background" Value="#FE6584"/>
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF4C70" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="95" Height="20" CornerRadius="12" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label x:Name="LabelChangePassword" Content="Forget password?" HorizontalAlignment="Left" Margin="241,319,0,0" VerticalAlignment="Top" FontFamily="..\Fonts\#Dosis"/>
+        <Label x:Name="LabelSignUp1" Content="Don't have an account?" HorizontalAlignment="Left" Margin="216,295,0,0" VerticalAlignment="Top" FontFamily="..\Fonts\#Dosis"/>
+        <Image x:Name="ImageCovid" HorizontalAlignment="Left" Height="66" Margin="361,61,0,0" VerticalAlignment="Top" Width="99" Source="..\Images\covid_img.png" />
     </Grid>
 </Window>
