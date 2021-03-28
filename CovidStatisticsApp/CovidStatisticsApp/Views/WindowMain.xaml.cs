@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CovidStatisticsApp.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace CovidStatisticsApp
 {
     public partial class MainWindow : Window
@@ -21,6 +23,7 @@ namespace CovidStatisticsApp
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ApiHelper.InitializeClient();            
         }
     }
 }
