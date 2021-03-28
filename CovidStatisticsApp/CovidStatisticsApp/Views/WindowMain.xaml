@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBlock Margin="20,20,19.6,20" Height="381" Text="Hello "/>
+            <TextBlock x:Name="DebugWindow" Margin="20,20,19.6,20" Height="381" Text="Hello "/>
         </StackPanel>
         
     </Grid>

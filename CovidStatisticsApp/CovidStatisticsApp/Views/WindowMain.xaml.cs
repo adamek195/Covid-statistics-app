@@ -23,7 +23,8 @@ namespace CovidStatisticsApp
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ApiHelper.InitializeClient();            
+            ApiHelper.InitializeClient();
+            DebugWindow.Text = "";
         }
     }
 }

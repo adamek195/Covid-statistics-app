@@ -72,6 +72,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Client\ApiHelper.cs" />
+    <Compile Include="DataProcessors\CovidDataProcessor.cs" />
     <Compile Include="Migrations\202103261755560_InitialMigration.cs" />
     <Compile Include="Migrations\202103261755560_InitialMigration.designer.cs">
       <DependentUpon>202103261755560_InitialMigration.cs</DependentUpon>
@@ -81,6 +82,7 @@
       <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CovidDataModel.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
