@@ -29,11 +29,13 @@ namespace CovidStatisticsApp
             LoadCovidData("Poland");
         }
 
-        private void LoadCovidData(string country)
+        private async void LoadCovidData(string country)
         {
-            CovidDataProcessor.PrintLoadedData(country);
-            // var data = await CovidDataProcessor.LoadCountryOverallTodayCases(country);
-            // TextBoxDebug.Text = data.ActiveCases.ToString();
+            var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
+            foreach (var foo in statisticsList)
+            {
+                Console.WriteLine(foo.ActiveCases);
+            }
         }
     }
 }
