@@ -87,7 +87,7 @@
     <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
-    <Compile Include="ViewModels\CovidDataModel.cs" />
+    <Compile Include="ViewModels\CovidStatisticsDataModel.cs" />
     <Compile Include="Views\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
     </Compile>
