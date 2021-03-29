@@ -25,7 +25,6 @@ namespace CovidStatisticsApp
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ApiHelper.InitializeClient();
-            LoadCovidData("Poland");
         }
 
         private async void LoadCovidData(string country)
@@ -38,6 +37,19 @@ namespace CovidStatisticsApp
             ActiveCasesTextBlock.Text = yesterdayStats.ActiveCases.ToString();
             CountryTextBlock.Text = yesterdayStats.Country.ToString();
             DateTextBlock.Text = yesterdayStats.Date.ToString();
+        }
+
+        private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string country = TextBoxEnterCountry.Text;
+                LoadCovidData(country);
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
         }
     }
 }

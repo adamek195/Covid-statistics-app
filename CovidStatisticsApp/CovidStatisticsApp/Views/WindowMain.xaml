@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <FlowDocumentScrollViewer>
+        <FlowDocumentScrollViewer>
         <FlowDocument>
+            <Paragraph>
+                <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" />
+                <Button x:Name="ButtonSearchData" Content="Search" HorizontalAlignment="Left" Margin="5" Width="104"
+                Foreground="White" FontWeight="Medium" FontSize="11" Click="ButtonSearchData_Click" ></Button>
+            </Paragraph>
             <Paragraph FontSize="14pt">Covid stats for country
                 <TextBlock x:Name="CountryTextBlock" ></TextBlock>
             </Paragraph>
