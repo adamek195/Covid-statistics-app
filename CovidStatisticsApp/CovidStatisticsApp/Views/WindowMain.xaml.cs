@@ -25,17 +25,19 @@ namespace CovidStatisticsApp
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ApiHelper.InitializeClient();
-            TextBoxDebug.Text = "";
             LoadCovidData("Poland");
         }
 
         private async void LoadCovidData(string country)
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
-            foreach (var foo in statisticsList)
-            {
-                Console.WriteLine(foo.ActiveCases);
-            }
+            var yesterdayStats = statisticsList[statisticsList.Count - 1];
+            ConfirmedCasesTextBlock.Text = yesterdayStats.ConfirmedCases.ToString();
+            DeathCasesTextBlock.Text = yesterdayStats.DeathCases.ToString();
+            RecoveredCasesTextBlock.Text = yesterdayStats.RecoveredCases.ToString();
+            ActiveCasesTextBlock.Text = yesterdayStats.ActiveCases.ToString();
+            CountryTextBlock.Text = yesterdayStats.Country.ToString();
+            DateTextBlock.Text = yesterdayStats.Date.ToString();
         }
     }
 }

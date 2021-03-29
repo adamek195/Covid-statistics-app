@@ -6,10 +6,75 @@
         xmlns:local="clr-namespace:CovidStatisticsApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <TextBlock x:Name="TextBoxDebug" Margin="20,20,19.6,20" Height="381" Text="Hello "/>
-        </StackPanel>
-        
-    </Grid>
+
+    <FlowDocumentScrollViewer>
+        <FlowDocument>
+            <Paragraph FontSize="14pt">Covid stats for country
+                <TextBlock x:Name="CountryTextBlock" ></TextBlock>
+            </Paragraph>
+            <Table>
+                <TableRowGroup Paragraph.TextAlignment="left">
+                    <TableRow FontWeight="Bold" >
+                        <TableCell>
+                            <Paragraph>Data type</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>Number</Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Confirmed Cases</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>
+                                <TextBlock x:Name="ConfirmedCasesTextBlock"></TextBlock>
+                            </Paragraph>
+                        </TableCell>
+
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Death Cases</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>
+                                <TextBlock x:Name="DeathCasesTextBlock"></TextBlock>
+                            </Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Active Cases</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>
+                                <TextBlock x:Name="ActiveCasesTextBlock"></TextBlock>
+                            </Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Recovered Cases</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>
+                                <TextBlock x:Name="RecoveredCasesTextBlock"></TextBlock>
+                            </Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Date</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>
+                                <TextBlock x:Name="DateTextBlock"></TextBlock>
+                            </Paragraph>
+                        </TableCell>
+                    </TableRow>
+                </TableRowGroup>
+            </Table>
+        </FlowDocument>
+    </FlowDocumentScrollViewer>
 </Window>
