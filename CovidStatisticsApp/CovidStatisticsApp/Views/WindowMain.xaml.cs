@@ -1,4 +1,5 @@
 ﻿using CovidStatisticsApp.Client;
+using CovidStatisticsApp.DataProcessors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,15 @@ namespace CovidStatisticsApp
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ApiHelper.InitializeClient();
-            DebugWindow.Text = "";
+            TextBoxDebug.Text = "";
+            LoadCovidData("Poland");
+        }
+
+        private void LoadCovidData(string country)
+        {
+            CovidDataProcessor.PrintLoadedData(country);
+            // var data = await CovidDataProcessor.LoadCountryOverallTodayCases(country);
+            // TextBoxDebug.Text = data.ActiveCases.ToString();
         }
     }
 }

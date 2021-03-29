@@ -82,12 +82,12 @@
       <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CovidDataModel.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="ViewModels\CovidDataModel.cs" />
     <Compile Include="Views\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
     </Compile>
