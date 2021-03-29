@@ -15,7 +15,7 @@
                 Foreground="White" FontWeight="Medium" FontSize="11" Click="ButtonSearchData_Click" ></Button>
             </Paragraph>
             <Paragraph FontSize="14pt">Covid stats for country
-                <TextBlock x:Name="CountryTextBlock" ></TextBlock>
+                <TextBlock x:Name="TextBlockCountry" ></TextBlock>
             </Paragraph>
             <Table>
                 <TableRowGroup Paragraph.TextAlignment="left">
@@ -33,7 +33,7 @@
                         </TableCell>
                         <TableCell>
                             <Paragraph>
-                                <TextBlock x:Name="ConfirmedCasesTextBlock"></TextBlock>
+                                <TextBlock x:Name="TextBlockConfirmedCases"></TextBlock>
                             </Paragraph>
                         </TableCell>
 
@@ -44,7 +44,7 @@
                         </TableCell>
                         <TableCell>
                             <Paragraph>
-                                <TextBlock x:Name="DeathCasesTextBlock"></TextBlock>
+                                <TextBlock x:Name="TextBlockDeathCases"></TextBlock>
                             </Paragraph>
                         </TableCell>
                     </TableRow>
@@ -54,7 +54,7 @@
                         </TableCell>
                         <TableCell>
                             <Paragraph>
-                                <TextBlock x:Name="ActiveCasesTextBlock"></TextBlock>
+                                <TextBlock x:Name="TextBlockActiveCases"></TextBlock>
                             </Paragraph>
                         </TableCell>
                     </TableRow>
@@ -64,7 +64,7 @@
                         </TableCell>
                         <TableCell>
                             <Paragraph>
-                                <TextBlock x:Name="RecoveredCasesTextBlock"></TextBlock>
+                                <TextBlock x:Name="TextBlockRecoveredCases"></TextBlock>
                             </Paragraph>
                         </TableCell>
                     </TableRow>
@@ -74,7 +74,7 @@
                         </TableCell>
                         <TableCell>
                             <Paragraph>
-                                <TextBlock x:Name="DateTextBlock"></TextBlock>
+                                <TextBlock x:Name="TextBlockDate"></TextBlock>
                             </Paragraph>
                         </TableCell>
                     </TableRow>

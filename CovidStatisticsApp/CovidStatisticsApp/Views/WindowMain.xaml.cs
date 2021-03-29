@@ -31,12 +31,12 @@ namespace CovidStatisticsApp
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
             var yesterdayStats = statisticsList[statisticsList.Count - 1];
-            ConfirmedCasesTextBlock.Text = yesterdayStats.ConfirmedCases.ToString();
-            DeathCasesTextBlock.Text = yesterdayStats.DeathCases.ToString();
-            RecoveredCasesTextBlock.Text = yesterdayStats.RecoveredCases.ToString();
-            ActiveCasesTextBlock.Text = yesterdayStats.ActiveCases.ToString();
-            CountryTextBlock.Text = yesterdayStats.Country.ToString();
-            DateTextBlock.Text = yesterdayStats.Date.ToString();
+            TextBlockConfirmedCases.Text = yesterdayStats.ConfirmedCases.ToString();
+            TextBlockDeathCases.Text = yesterdayStats.DeathCases.ToString();
+            TextBlockRecoveredCases.Text = yesterdayStats.RecoveredCases.ToString();
+            TextBlockActiveCases.Text = yesterdayStats.ActiveCases.ToString();
+            TextBlockCountry.Text = yesterdayStats.Country.ToString();
+            TextBlockDate.Text = yesterdayStats.Date.ToString();
         }
 
         private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
