@@ -13,7 +13,7 @@ namespace CovidStatisticsApp.DataProcessors
 {
     public class CovidDataProcessor
     {
-        public static async Task<List<CovidStatisticsDataModel>> LoadCountryOverallStats(string country)
+        public static async Task<List<CovidStatisticsDataViewModel>> LoadCountryOverallStats(string country)
         {
             string url = $"https://api.covid19api.com/total/country/{ country }";
 
@@ -22,8 +22,8 @@ namespace CovidStatisticsApp.DataProcessors
                 if (response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
-                    List<CovidStatisticsDataModel> values = 
-                        JsonConvert.DeserializeObject<List<CovidStatisticsDataModel>>(responseBody);
+                    List<CovidStatisticsDataViewModel> values = 
+                        JsonConvert.DeserializeObject<List<CovidStatisticsDataViewModel>>(responseBody);
                     return values;
                 }
                 else

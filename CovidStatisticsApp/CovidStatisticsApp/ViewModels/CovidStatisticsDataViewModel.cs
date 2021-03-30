@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.ViewModels
 {
-    public class CovidStatisticsDataModel
+    public class CovidStatisticsDataViewModel
     {
         [JsonProperty("Confirmed")]
         public int ConfirmedCases { get; set; }
