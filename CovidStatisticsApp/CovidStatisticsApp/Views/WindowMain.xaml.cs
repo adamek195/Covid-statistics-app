@@ -1,5 +1,7 @@
 ﻿using CovidStatisticsApp.Client;
 using CovidStatisticsApp.DataProcessors;
+using CovidStatisticsApp.Models.Entities;
+using CovidStatisticsApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +22,20 @@ namespace CovidStatisticsApp
 {
     public partial class MainWindow : Window
     {
+        private readonly CountriesRepository countriesRepository;
+
         public MainWindow()
         {
+            countriesRepository = new CountriesRepository();
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ApiHelper.InitializeClient();
+        }
+
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataGridCountries.ItemsSource = countriesRepository.GetCountries();
         }
 
         private async void LoadCovidData(string country)
@@ -41,6 +52,7 @@ namespace CovidStatisticsApp
 
         private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
+            DataGridCountries.ItemsSource = countriesRepository.GetCountries();
             try
             {
                 string country = TextBoxEnterCountry.Text;
@@ -50,6 +62,12 @@ namespace CovidStatisticsApp
             {
                 Console.WriteLine(exc);
             }
+        }
+
+        private void DataGridCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Country country = (Country)DataGridCountries.CurrentCell.Item;
+            TextBoxEnterCountry.Text = country.Name;
         }
     }
 }

@@ -89,6 +89,8 @@
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Entities\Country.cs" />
     <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Repositories\CountriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICountriesRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
