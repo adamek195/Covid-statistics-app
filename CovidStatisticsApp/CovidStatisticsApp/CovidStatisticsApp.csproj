@@ -81,8 +81,13 @@
     <Compile Include="Migrations\202103271126369_AddEmial.designer.cs">
       <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104051923415_CountryModelMigration.cs" />
+    <Compile Include="Migrations\202104051923415_CountryModelMigration.designer.cs">
+      <DependentUpon>202104051923415_CountryModelMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
+    <Compile Include="Models\Entities\Country.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -140,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103271126369_AddEmial.resx">
       <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104051923415_CountryModelMigration.resx">
+      <DependentUpon>202104051923415_CountryModelMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
