@@ -52,15 +52,22 @@ namespace CovidStatisticsApp
 
         private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
-            DataGridCountries.ItemsSource = countriesRepository.GetCountries();
-            try
+            string countryName = TextBoxEnterCountry.Text;
+
+            if (countriesRepository.FindCountryByName(countryName))
             {
-                string country = TextBoxEnterCountry.Text;
-                LoadCovidData(country);
+                try
+                {
+                    LoadCovidData(countryName);
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
             }
-            catch(Exception exc)
+            else
             {
-                Console.WriteLine(exc);
+                MessageBox.Show("There is no such country in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

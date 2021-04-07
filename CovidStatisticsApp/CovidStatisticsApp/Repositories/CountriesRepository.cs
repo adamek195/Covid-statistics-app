@@ -15,5 +15,11 @@ namespace CovidStatisticsApp.Repositories
             List<Country> countries = DbContext.Countries.ToList();
             return countries;
         }
+
+        public bool FindCountryByName(string countryName)
+        {
+            Country country = DbContext.Countries.SingleOrDefault(c => c.Name == countryName);
+            return country != null;
+        }
     }
 }

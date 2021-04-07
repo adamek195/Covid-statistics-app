@@ -10,5 +10,6 @@ namespace CovidStatisticsApp.Repositories.Interfaces
     public interface ICountriesRepository
     {
         List<Country> GetCountries();
+        bool FindCountryByName(string countryName);
     }
 }
