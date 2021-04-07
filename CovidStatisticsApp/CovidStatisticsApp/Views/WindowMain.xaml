@@ -10,9 +10,30 @@
         <FlowDocumentScrollViewer>
         <FlowDocument>
             <Paragraph>
-                <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" />
-                <Button x:Name="ButtonSearchData" Content="Search" HorizontalAlignment="Left" Margin="5" Width="104"
-                Foreground="White" FontWeight="Medium" FontSize="11" Click="ButtonSearchData_Click" ></Button>
+                <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
+                <Button x:Name="ButtonSearchData" Content="Search" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="120"
+                        Foreground="White" FontWeight="Medium" FontSize="13" Click="ButtonSearchData_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
+                            <Setter Property="Background" Value="#FE6584"/>
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Gray" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="25" CornerRadius="12" Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Paragraph>
             <Paragraph FontSize="14pt">Covid stats for country
                 <TextBlock x:Name="TextBlockCountry" ></TextBlock>
