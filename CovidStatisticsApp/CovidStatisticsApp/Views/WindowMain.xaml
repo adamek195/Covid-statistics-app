@@ -7,103 +7,112 @@
         mc:Ignorable="d"
         Title="MainWindow" Loaded="MainWindow_Loaded" Height="450" Width="800">
 
+    <Grid Background="#FF63786A">
+        <Border Grid.Row="1" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gray" Offset="-0.2" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
         <FlowDocumentScrollViewer>
-        <FlowDocument>
-            <Paragraph>
-                <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
-                <Button x:Name="ButtonSearchData" Content="Search" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="120"
+            <FlowDocument>
+                <Paragraph>
+                    <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
+                    <Button x:Name="ButtonSearchData" Content="Search" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="120"
                         Foreground="White" FontWeight="Medium" FontSize="13" Click="ButtonSearchData_Click">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
-                            <Setter Property="Background" Value="#FE6584"/>
-                            <Setter Property="Cursor" Value="Hand" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Gray" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="../Fonts/#Doxis"/>
+                                <Setter Property="Background" Value="#FE6584"/>
+                                <Setter Property="Cursor" Value="Hand" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
 
-                    <Button.Template>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border Width="100" Height="25" CornerRadius="12" Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </Paragraph>
-            <Paragraph FontSize="14pt">Covid stats for country
-                <TextBlock x:Name="TextBlockCountry" ></TextBlock>
-            </Paragraph>
-            <Table>
-                <TableRowGroup Paragraph.TextAlignment="left">
-                    <TableRow FontWeight="Bold" >
-                        <TableCell>
-                            <Paragraph>Data type</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>Number</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Confirmed Cases</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <TextBlock x:Name="TextBlockConfirmedCases"></TextBlock>
-                            </Paragraph>
-                        </TableCell>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25" CornerRadius="12" Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Paragraph>
+                <Paragraph FontSize="14pt">Covid stats for country
+                    <TextBlock x:Name="TextBlockCountry" ></TextBlock>
+                </Paragraph>
+                <Table>
+                    <TableRowGroup Paragraph.TextAlignment="left">
+                        <TableRow FontWeight="Bold" >
+                            <TableCell>
+                                <Paragraph>Data type</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Number</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Confirmed Cases</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>
+                                    <TextBlock x:Name="TextBlockConfirmedCases"></TextBlock>
+                                </Paragraph>
+                            </TableCell>
 
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Death Cases</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <TextBlock x:Name="TextBlockDeathCases"></TextBlock>
-                            </Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Active Cases</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <TextBlock x:Name="TextBlockActiveCases"></TextBlock>
-                            </Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Recovered Cases</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <TextBlock x:Name="TextBlockRecoveredCases"></TextBlock>
-                            </Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Date</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <TextBlock x:Name="TextBlockDate"></TextBlock>
-                            </Paragraph>
-                        </TableCell>
-                    </TableRow>
-                </TableRowGroup>
-            </Table>
-            <Paragraph>
-                <InlineUIContainer>
-                    <DataGrid x:Name="DataGridCountries"
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Death Cases</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>
+                                    <TextBlock x:Name="TextBlockDeathCases"></TextBlock>
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Active Cases</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>
+                                    <TextBlock x:Name="TextBlockActiveCases"></TextBlock>
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Recovered Cases</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>
+                                    <TextBlock x:Name="TextBlockRecoveredCases"></TextBlock>
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Date</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>
+                                    <TextBlock x:Name="TextBlockDate"></TextBlock>
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <DataGrid x:Name="DataGridCountries"
                               CanUserDeleteRows="False"
                               CanUserResizeRows="False"
                               IsReadOnly="True"
@@ -113,8 +122,9 @@
                               RowBackground="SandyBrown"
                               Height="160"
                               Width="190" SelectionChanged="DataGridCountries_SelectionChanged"/>
-                </InlineUIContainer>
-            </Paragraph>
-        </FlowDocument>
-    </FlowDocumentScrollViewer>
+                    </InlineUIContainer>
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+    </Grid>
 </Window>
