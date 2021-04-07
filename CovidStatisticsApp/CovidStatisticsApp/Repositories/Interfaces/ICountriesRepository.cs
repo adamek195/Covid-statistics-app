@@ -1,15 +1,11 @@
-﻿using CovidStatisticsApp.Models.Entities;
-using System;
+﻿using CovidStatisticsApp.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.Repositories.Interfaces
 {
     public interface ICountriesRepository
     {
-        List<Country> GetCountries();
+        List<CountryViewModel> GetCountries();
         bool FindCountryByName(string countryName);
     }
 }

@@ -1,19 +1,17 @@
 ﻿using CovidStatisticsApp.Models.Entities;
 using CovidStatisticsApp.Repositories.Interfaces;
-using System;
+using CovidStatisticsApp.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.Repositories
 {
     public class CountriesRepository : Repository, ICountriesRepository
     {
-        public List<Country> GetCountries()
+        public List<CountryViewModel> GetCountries()
         {
             List<Country> countries = DbContext.Countries.ToList();
-            return countries;
+            return Mapper.Map<List<Country>, List<CountryViewModel>>(countries);
         }
 
         public bool FindCountryByName(string countryName)

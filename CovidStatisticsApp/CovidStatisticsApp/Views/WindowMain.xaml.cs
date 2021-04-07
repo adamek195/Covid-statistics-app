@@ -2,6 +2,7 @@
 using CovidStatisticsApp.DataProcessors;
 using CovidStatisticsApp.Models.Entities;
 using CovidStatisticsApp.Repositories;
+using CovidStatisticsApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,7 @@ namespace CovidStatisticsApp
 
         private void DataGridCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Country country = (Country)DataGridCountries.CurrentCell.Item;
+            CountryViewModel country = (CountryViewModel)DataGridCountries.CurrentCell.Item;
             TextBoxEnterCountry.Text = country.Name;
         }
     }
