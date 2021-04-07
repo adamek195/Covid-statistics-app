@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CovidStatisticsApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Loaded="MainWindow_Loaded" Height="450" Width="800">
 
         <FlowDocumentScrollViewer>
         <FlowDocument>
@@ -80,6 +80,19 @@
                     </TableRow>
                 </TableRowGroup>
             </Table>
+            <Paragraph>
+                <InlineUIContainer>
+                    <DataGrid x:Name="DataGridCountries"
+                              CanUserDeleteRows="False"
+                              CanUserResizeRows="False"
+                              SelectionMode="Single"
+                              SelectionUnit="FullRow"
+                              AlternatingRowBackground="BurlyWood" AlternationCount="2"
+                              RowBackground="SandyBrown"
+                              Height="160"
+                              Width="190" SelectionChanged="DataGridCountries_SelectionChanged"/>
+                </InlineUIContainer>
+            </Paragraph>
         </FlowDocument>
     </FlowDocumentScrollViewer>
 </Window>

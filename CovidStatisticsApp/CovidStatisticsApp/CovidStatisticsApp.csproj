@@ -38,14 +38,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -73,6 +76,7 @@
     </ApplicationDefinition>
     <Compile Include="Client\ApiHelper.cs" />
     <Compile Include="DataProcessors\CovidDataProcessor.cs" />
+    <Compile Include="Infrastructure\MapperProfile.cs" />
     <Compile Include="Migrations\202103261755560_InitialMigration.cs" />
     <Compile Include="Migrations\202103261755560_InitialMigration.designer.cs">
       <DependentUpon>202103261755560_InitialMigration.cs</DependentUpon>
@@ -81,12 +85,20 @@
     <Compile Include="Migrations\202103271126369_AddEmial.designer.cs">
       <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104051923415_CountryModelMigration.cs" />
+    <Compile Include="Migrations\202104051923415_CountryModelMigration.designer.cs">
+      <DependentUpon>202104051923415_CountryModelMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
+    <Compile Include="Models\Entities\Country.cs" />
     <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Repositories\CountriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICountriesRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="ViewModels\CountryViewModel.cs" />
     <Compile Include="ViewModels\CovidStatisticsDataViewModel.cs" />
     <Compile Include="Views\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
@@ -140,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103271126369_AddEmial.resx">
       <DependentUpon>202103271126369_AddEmial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104051923415_CountryModelMigration.resx">
+      <DependentUpon>202104051923415_CountryModelMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

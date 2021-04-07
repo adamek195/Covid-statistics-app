@@ -1,5 +1,8 @@
 ﻿using CovidStatisticsApp.Client;
 using CovidStatisticsApp.DataProcessors;
+using CovidStatisticsApp.Models.Entities;
+using CovidStatisticsApp.Repositories;
+using CovidStatisticsApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +23,20 @@ namespace CovidStatisticsApp
 {
     public partial class MainWindow : Window
     {
+        private readonly CountriesRepository countriesRepository;
+
         public MainWindow()
         {
+            countriesRepository = new CountriesRepository();
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ApiHelper.InitializeClient();
+        }
+
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataGridCountries.ItemsSource = countriesRepository.GetCountries();
         }
 
         private async void LoadCovidData(string country)
@@ -41,15 +53,29 @@ namespace CovidStatisticsApp
 
         private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
-            try
+            string countryName = TextBoxEnterCountry.Text;
+
+            if (countriesRepository.FindCountryByName(countryName))
             {
-                string country = TextBoxEnterCountry.Text;
-                LoadCovidData(country);
+                try
+                {
+                    LoadCovidData(countryName);
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
             }
-            catch(Exception exc)
+            else
             {
-                Console.WriteLine(exc);
+                MessageBox.Show("There is no such country in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void DataGridCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CountryViewModel country = (CountryViewModel)DataGridCountries.CurrentCell.Item;
+            TextBoxEnterCountry.Text = country.Name;
         }
     }
 }
