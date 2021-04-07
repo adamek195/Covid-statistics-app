@@ -85,6 +85,7 @@
                     <DataGrid x:Name="DataGridCountries"
                               CanUserDeleteRows="False"
                               CanUserResizeRows="False"
+                              IsReadOnly="True"
                               SelectionMode="Single"
                               SelectionUnit="FullRow"
                               AlternatingRowBackground="BurlyWood" AlternationCount="2"
