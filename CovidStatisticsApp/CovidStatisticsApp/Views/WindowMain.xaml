@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CovidStatisticsApp"
         mc:Ignorable="d"
-        Title="MainWindow" Loaded="MainWindow_Loaded" Height="450" Width="800">
+        Title="MainWindow" Loaded="MainWindow_Loaded" Height="700" Width="1000">
 
     <Grid Background="#FF63786A">
-        <Border Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Gray" Offset="-0.2" />
@@ -16,7 +19,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <FlowDocumentScrollViewer>
+        <FlowDocumentScrollViewer Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <FlowDocument>
                 <Paragraph>
                     <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
@@ -126,5 +129,18 @@
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>
+        <StackPanel Margin="0,10,35,0" HorizontalAlignment="Right">
+            <Label FontWeight="Bold">Select period</Label>
+            <RadioButton GroupName="period" IsChecked="True">Last week</RadioButton>
+            <RadioButton GroupName="period">Last month</RadioButton>
+            <RadioButton GroupName="period">Last 6 months</RadioButton>
+            <RadioButton GroupName="period">Overall</RadioButton>
+
+            <Label FontWeight="Bold">Select cases</Label>
+            <RadioButton GroupName="cases" IsChecked="True">Confirmed</RadioButton>
+            <RadioButton GroupName="cases">Active</RadioButton>
+            <RadioButton GroupName="cases">Deaths</RadioButton>
+            <RadioButton GroupName="cases">Recovered</RadioButton>
+        </StackPanel>
     </Grid>
 </Window>
