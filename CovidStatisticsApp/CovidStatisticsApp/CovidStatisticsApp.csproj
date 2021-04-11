@@ -41,6 +41,9 @@
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetProjects.Input.Toolkit, Version=6.0.87.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.WpfToolkit.Input.6.0.87\lib\net40\DotNetProjects.Input.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -88,6 +91,10 @@
     <Compile Include="Migrations\202104051923415_CountryModelMigration.cs" />
     <Compile Include="Migrations\202104051923415_CountryModelMigration.designer.cs">
       <DependentUpon>202104051923415_CountryModelMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104110846010_RemoveCapital.cs" />
+    <Compile Include="Migrations\202104110846010_RemoveCapital.designer.cs">
+      <DependentUpon>202104110846010_RemoveCapital.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
@@ -155,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104051923415_CountryModelMigration.resx">
       <DependentUpon>202104051923415_CountryModelMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104110846010_RemoveCapital.resx">
+      <DependentUpon>202104110846010_RemoveCapital.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

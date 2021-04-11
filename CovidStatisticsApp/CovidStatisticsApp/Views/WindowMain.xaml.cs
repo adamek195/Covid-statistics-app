@@ -37,6 +37,8 @@ namespace CovidStatisticsApp
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataGridCountries.ItemsSource = countriesRepository.GetCountries();
+            AutoCompleteBoxCountry.FilterMode = AutoCompleteFilterMode.Contains;
+            AutoCompleteBoxCountry.ItemsSource = countriesRepository.GetCountryNames();
         }
 
         private async void LoadCovidData(string country)
@@ -53,7 +55,7 @@ namespace CovidStatisticsApp
 
         private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
-            string countryName = TextBoxEnterCountry.Text;
+            string countryName = AutoCompleteBoxCountry.Text;
 
             if (countriesRepository.FindCountryByName(countryName))
             {
@@ -70,12 +72,6 @@ namespace CovidStatisticsApp
             {
                 MessageBox.Show("There is no such country in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void DataGridCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            CountryViewModel country = (CountryViewModel)DataGridCountries.CurrentCell.Item;
-            TextBoxEnterCountry.Text = country.Name;
         }
     }
 }

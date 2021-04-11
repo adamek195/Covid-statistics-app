@@ -15,9 +15,5 @@ namespace CovidStatisticsApp.Models.Entities
         [Required]
         [MaxLength(64)]
         public string Name { get; set; }
-
-        [Required]
-        [MaxLength(64)]
-        public string Capital { get; set; }
     }
 }

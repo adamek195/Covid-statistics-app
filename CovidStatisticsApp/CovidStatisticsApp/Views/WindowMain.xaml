@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CovidStatisticsApp"
+        xmlns:local="clr-namespace:CovidStatisticsApp" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Loaded="MainWindow_Loaded" ResizeMode="NoResize" Height="700" Width="1000">
 
@@ -22,7 +22,9 @@
         <FlowDocumentScrollViewer Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <FlowDocument>
                 <Paragraph>
-                    <TextBox x:Name="TextBoxEnterCountry" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray" />
+                    <controls:AutoCompleteBox x:Name="AutoCompleteBoxCountry" HorizontalAlignment="Left" Height="25"
+                             VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.498,0.439" Padding="2" BorderThickness="1.5" BorderBrush="Gray">    
+                    </controls:AutoCompleteBox>
                     <Button x:Name="ButtonSearchData" Content="Search" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="120"
                         Foreground="White" FontWeight="Medium" FontSize="13" Click="ButtonSearchData_Click">
                         <Button.Style>
@@ -47,22 +49,22 @@
                         </Button.Template>
                     </Button>
                 </Paragraph>
-                <Paragraph FontSize="14pt">Covid stats for country
+                <Paragraph FontSize="14pt" FontFamily="..\Fonts\#Dosis">Covid stats for country
                     <TextBlock x:Name="TextBlockCountry" ></TextBlock>
                 </Paragraph>
                 <Table>
                     <TableRowGroup Paragraph.TextAlignment="left">
-                        <TableRow FontWeight="Bold" >
+                        <TableRow FontWeight="Bold" FontFamily="..\Fonts\#Dosis" >
                             <TableCell>
-                                <Paragraph>Data type</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Data type</Paragraph>
                             </TableCell>
                             <TableCell>
-                                <Paragraph>Number</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Number</Paragraph>
                             </TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <Paragraph>Confirmed Cases</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Confirmed Cases</Paragraph>
                             </TableCell>
                             <TableCell>
                                 <Paragraph>
@@ -73,7 +75,7 @@
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <Paragraph>Death Cases</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Death Cases</Paragraph>
                             </TableCell>
                             <TableCell>
                                 <Paragraph>
@@ -83,7 +85,7 @@
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <Paragraph>Active Cases</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Active Cases</Paragraph>
                             </TableCell>
                             <TableCell>
                                 <Paragraph>
@@ -93,7 +95,7 @@
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <Paragraph>Recovered Cases</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Recovered Cases</Paragraph>
                             </TableCell>
                             <TableCell>
                                 <Paragraph>
@@ -103,7 +105,7 @@
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <Paragraph>Date</Paragraph>
+                                <Paragraph FontFamily="..\Fonts\#Dosis" >Date</Paragraph>
                             </TableCell>
                             <TableCell>
                                 <Paragraph>
@@ -114,29 +116,33 @@
                     </TableRowGroup>
                 </Table>
                 <Paragraph>
+                    <Label FontWeight="Bold" FontSize="14" FontFamily="..\Fonts\#Dosis">Countries from database:</Label>
+                </Paragraph>
+                <Paragraph>
                     <InlineUIContainer>
                         <DataGrid x:Name="DataGridCountries"
-                              CanUserDeleteRows="False"
-                              CanUserResizeRows="False"
-                              IsReadOnly="True"
-                              SelectionMode="Single"
-                              SelectionUnit="FullRow"
-                              AlternatingRowBackground="BurlyWood" AlternationCount="2"
-                              RowBackground="SandyBrown"
-                              Height="160"
-                              Width="98" SelectionChanged="DataGridCountries_SelectionChanged"/>
+                            CanUserDeleteRows="False"
+                            CanUserResizeRows="False"
+                            ColumnWidth="145"
+                            IsReadOnly="True"
+                            SelectionMode="Single"
+                            SelectionUnit="FullRow"
+                            AlternatingRowBackground="Gray" AlternationCount="2"
+                            RowBackground="#FE6584"
+                            Height="200"
+                            Width="150" />
                     </InlineUIContainer>
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>
         <StackPanel Margin="0,10,35,0" HorizontalAlignment="Right">
-            <Label FontWeight="Bold" FontSize="14">Select period</Label>
+            <Label FontWeight="Bold" FontSize="14" FontFamily="..\Fonts\#Dosis">Select period</Label>
             <RadioButton x:Name="RadioButtonLastWeek" GroupName="period" IsChecked="True" FontSize="13">Last week</RadioButton>
             <RadioButton x:Name="RadioButtonLastMonth" GroupName="period" FontSize="13">Last month</RadioButton>
             <RadioButton x:Name="RadioButtonLastSixMonths" GroupName="period" FontSize="13">Last 6 months</RadioButton>
             <RadioButton x:Name="RadioButtonOverall" GroupName="period" FontSize="13">Overall</RadioButton>
 
-            <Label FontWeight="Bold" FontSize="14" Margin="0,10,0,0">Select cases</Label>
+            <Label FontWeight="Bold" FontSize="14" Margin="0,10,0,0" FontFamily="..\Fonts\#Dosis">Select cases</Label>
             <RadioButton x:Name="RadioButtonConfirmedCases" GroupName="cases" IsChecked="True" FontSize="13">Confirmed</RadioButton>
             <RadioButton x:Name="RadioButtonActiveCases" GroupName="cases" FontSize="13">Active</RadioButton>
             <RadioButton x:Name="RadioButtonDeathCases" GroupName="cases" FontSize="13">Deaths</RadioButton>
