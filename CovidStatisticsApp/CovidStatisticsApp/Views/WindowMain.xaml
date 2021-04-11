@@ -124,7 +124,7 @@
                               AlternatingRowBackground="BurlyWood" AlternationCount="2"
                               RowBackground="SandyBrown"
                               Height="160"
-                              Width="190" SelectionChanged="DataGridCountries_SelectionChanged"/>
+                              Width="98" SelectionChanged="DataGridCountries_SelectionChanged"/>
                     </InlineUIContainer>
                 </Paragraph>
             </FlowDocument>
