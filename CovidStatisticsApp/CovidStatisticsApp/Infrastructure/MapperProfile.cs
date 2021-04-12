@@ -10,8 +10,7 @@ namespace CovidStatisticsApp.Infrastructure
         public MapperProfile()
         {
             CreateMap<Country, CountryViewModel>()
-                .ForMember(c => c.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(c => c.Capital, opt => opt.MapFrom(src => src.Capital));
+                .ForMember(c => c.Name, opt => opt.MapFrom(src => src.Name));
         }
     }
 }

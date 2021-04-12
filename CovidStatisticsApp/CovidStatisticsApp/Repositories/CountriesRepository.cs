@@ -8,6 +8,17 @@ namespace CovidStatisticsApp.Repositories
 {
     public class CountriesRepository : Repository, ICountriesRepository
     {
+        public List<string> GetCountryNames()
+        {
+            List<string> countryNames = new List<string>();
+
+            foreach(var country in DbContext.Countries)
+            {
+                countryNames.Add(country.Name);
+            }
+
+            return countryNames;
+        }
         public List<CountryViewModel> GetCountries()
         {
             List<Country> countries = DbContext.Countries.ToList();
