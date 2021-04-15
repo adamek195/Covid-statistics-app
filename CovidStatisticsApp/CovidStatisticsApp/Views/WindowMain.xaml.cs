@@ -45,15 +45,15 @@ namespace CovidStatisticsApp
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
             PlotDataProcessor plotDataProcessor = new PlotDataProcessor(statisticsList);
-            var days14 = plotDataProcessor.ReturnRecovered14Days();
+            var days14 = plotDataProcessor.ReturnActive14Days();
             Console.WriteLine("\n \n14Days");
             foreach(var line in days14)
             {
                 Console.WriteLine(line);
             }
 
-            var overall = plotDataProcessor.ReturnRecoveredOverall();
-            Console.WriteLine("\n \n overall");
+            var overall = plotDataProcessor.ReturnActiveOverall();
+            Console.WriteLine("\n \nOverall");
             foreach (var line in overall)
             {
                 Console.WriteLine(line);

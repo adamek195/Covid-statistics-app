@@ -71,6 +71,33 @@ namespace CovidStatisticsApp.DataProcessors
             List<int> cutList = DataList.Select(element => element.RecoveredCases).ToList();
             return cutList;
         }
+
+        public List<int> ReturnActive14Days()
+        {
+            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 14, 14);
+            List<int> cutList = subList.Select(element => element.ActiveCases).ToList();
+            return cutList;
+        }
+
+        public List<int> ReturnActive30Days()
+        {
+            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 30, 30);
+            List<int> cutList = subList.Select(element => element.ActiveCases).ToList();
+            return cutList;
+        }
+
+        public List<int> ReturnActive180Days()
+        {
+            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 180, 180);
+            List<int> cutList = subList.Select(element => element.ActiveCases).ToList();
+            return cutList;
+        }
+
+        public List<int> ReturnActiveOverall()
+        {
+            List<int> cutList = DataList.Select(element => element.ActiveCases).ToList();
+            return cutList;
+        }
     }
     
 
