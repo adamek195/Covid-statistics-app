@@ -24,97 +24,81 @@ namespace CovidStatisticsApp.DataProcessors
 
         public List<int> ReturnDeaths14Days()
         {
-            List<int> cutList = this.WeekList.Select(element => element.DeathCases).ToList();
-            return cutList;
+            return this.WeekList.Select(element => element.DeathCases).ToList();
         }
 
         public List<int> ReturnDeaths30Days()
         {
-            List<int> cutList = this.MonthList.Select(element => element.DeathCases).ToList();
-            return cutList;
+            return this.MonthList.Select(element => element.DeathCases).ToList();
         }
         
         public List<int> ReturnDeaths180Days()
         {
-            List<int> cutList = this.HalfYearList.Select(element => element.DeathCases).ToList();
-            return cutList;
+            return this.HalfYearList.Select(element => element.DeathCases).ToList();
         }
         
         public List<int> ReturnDeathsOverall()
         {
-            List<int> cutList = this.OverallList.Select(element => element.DeathCases).ToList();
-            return cutList;
+            return this.OverallList.Select(element => element.DeathCases).ToList();
         }
 
         public List<int> ReturnRecovered14Days()
         {
-            List<int> cutList = this.WeekList.Select(element => element.RecoveredCases).ToList();
-            return cutList;
+            return this.WeekList.Select(element => element.RecoveredCases).ToList();
         }
 
         public List<int> ReturnRecovered30Days()
         {
-            List<int> cutList = this.MonthList.Select(element => element.RecoveredCases).ToList();
-            return cutList;
+            return this.MonthList.Select(element => element.RecoveredCases).ToList();
         }
 
         public List<int> ReturnRecovered180Days()
         {
-            List<int> cutList = this.HalfYearList.Select(element => element.RecoveredCases).ToList();
-            return cutList;
+            return this.HalfYearList.Select(element => element.RecoveredCases).ToList();
         }
 
         public List<int> ReturnRecoveredOverall()
         {
-            List<int> cutList = this.OverallList.Select(element => element.RecoveredCases).ToList();
-            return cutList;
+            return this.OverallList.Select(element => element.RecoveredCases).ToList();
         }
 
         public List<int> ReturnActive14Days()
         {
-            List<int> cutList = this.WeekList.Select(element => element.ActiveCases).ToList();
-            return cutList;
+            return this.WeekList.Select(element => element.ActiveCases).ToList();
         }
 
         public List<int> ReturnActive30Days()
         {
-            List<int> cutList = this.MonthList.Select(element => element.ActiveCases).ToList();
-            return cutList;
+            return this.MonthList.Select(element => element.ActiveCases).ToList();
         }
 
         public List<int> ReturnActive180Days()
         {
-            List<int> cutList = this.HalfYearList.Select(element => element.ActiveCases).ToList();
-            return cutList;
+            return this.HalfYearList.Select(element => element.ActiveCases).ToList();
         }
 
         public List<int> ReturnActiveOverall()
         {
-            List<int> cutList = this.OverallList.Select(element => element.ActiveCases).ToList();
-            return cutList;
+            return this.OverallList.Select(element => element.ActiveCases).ToList();
         }
         public List<int> ReturnConfirmed14Days()
         {
-            List<int> cutList = this.WeekList.Select(element => element.ConfirmedCases).ToList();
-            return cutList;
+            return this.WeekList.Select(element => element.ConfirmedCases).ToList();
         }
 
         public List<int> ReturnConfirmed30Days()
         {
-            List<int> cutList = this.MonthList.Select(element => element.ConfirmedCases).ToList();
-            return cutList;
+            return this.MonthList.Select(element => element.ConfirmedCases).ToList();
         }
 
         public List<int> ReturnConfirmed180Days()
         {
-            List<int> cutList = this.HalfYearList.Select(element => element.ConfirmedCases).ToList();
-            return cutList;
+            return this.HalfYearList.Select(element => element.ConfirmedCases).ToList();
         }
 
         public List<int> ReturnConfirmedOverall()
         {
-            List<int> cutList = this.OverallList.Select(element => element.ConfirmedCases).ToList();
-            return cutList;
+            return this.OverallList.Select(element => element.ConfirmedCases).ToList();
         }
     }
 }

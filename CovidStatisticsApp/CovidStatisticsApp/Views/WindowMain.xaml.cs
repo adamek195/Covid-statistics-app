@@ -44,21 +44,6 @@ namespace CovidStatisticsApp
         private async void LoadCovidData(string country)
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
-            PlotDataProcessor plotDataProcessor = new PlotDataProcessor(statisticsList);
-            var days14 = plotDataProcessor.ReturnConfirmed14Days();
-            Console.WriteLine("\n \n14Days");
-            foreach(var line in days14)
-            {
-                Console.WriteLine(line);
-            }
-
-            var overall = plotDataProcessor.ReturnConfirmedOverall();
-            Console.WriteLine("\n \nOverall");
-            foreach (var line in overall)
-            {
-                Console.WriteLine(line);
-            }
-
             var yesterdayStats = statisticsList[statisticsList.Count - 1];
             TextBlockConfirmedCases.Text = yesterdayStats.ConfirmedCases.ToString();
             TextBlockDeathCases.Text = yesterdayStats.DeathCases.ToString();
