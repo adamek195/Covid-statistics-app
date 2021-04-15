@@ -9,119 +9,111 @@ namespace CovidStatisticsApp.DataProcessors
 {
     public class PlotDataProcessor
     {
-        private List<CovidStatisticsDataViewModel> DataList;
-        private readonly int Size;
+        private readonly List<CovidStatisticsDataViewModel> WeekList;
+        private readonly List<CovidStatisticsDataViewModel> MonthList;
+        private readonly List<CovidStatisticsDataViewModel> HalfYearList;
+        private readonly List<CovidStatisticsDataViewModel> OverallList;
 
         public PlotDataProcessor(List<CovidStatisticsDataViewModel> DataList)
         {
-            this.DataList = DataList;
-            this.Size = DataList.Count;
+            this.WeekList = DataList.GetRange(DataList.Count - 14, 14);
+            this.MonthList = DataList.GetRange(DataList.Count - 30, 30);
+            this.HalfYearList = DataList.GetRange(DataList.Count - 180, 180);
+            this.OverallList = DataList;
         }
 
         public List<int> ReturnDeaths14Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 14, 14);
-            List<int> cutList = subList.Select(element => element.DeathCases).ToList();
+            List<int> cutList = this.WeekList.Select(element => element.DeathCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnDeaths30Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 30, 30);
-            List<int> cutList = subList.Select(element => element.DeathCases).ToList();
+            List<int> cutList = this.MonthList.Select(element => element.DeathCases).ToList();
             return cutList;
         }
         
         public List<int> ReturnDeaths180Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 180, 180);
-            List<int> cutList = subList.Select(element => element.DeathCases).ToList();
+            List<int> cutList = this.HalfYearList.Select(element => element.DeathCases).ToList();
             return cutList;
         }
         
         public List<int> ReturnDeathsOverall()
         {
-            List<int> cutList = DataList.Select(element => element.DeathCases).ToList();
+            List<int> cutList = this.OverallList.Select(element => element.DeathCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnRecovered14Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 14, 14);
-            List<int> cutList = subList.Select(element => element.RecoveredCases).ToList();
+            List<int> cutList = this.WeekList.Select(element => element.RecoveredCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnRecovered30Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 30, 30);
-            List<int> cutList = subList.Select(element => element.RecoveredCases).ToList();
+            List<int> cutList = this.MonthList.Select(element => element.RecoveredCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnRecovered180Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 180, 180);
-            List<int> cutList = subList.Select(element => element.RecoveredCases).ToList();
+            List<int> cutList = this.HalfYearList.Select(element => element.RecoveredCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnRecoveredOverall()
         {
-            List<int> cutList = DataList.Select(element => element.RecoveredCases).ToList();
+            List<int> cutList = this.OverallList.Select(element => element.RecoveredCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnActive14Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 14, 14);
-            List<int> cutList = subList.Select(element => element.ActiveCases).ToList();
+            List<int> cutList = this.WeekList.Select(element => element.ActiveCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnActive30Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 30, 30);
-            List<int> cutList = subList.Select(element => element.ActiveCases).ToList();
+            List<int> cutList = this.MonthList.Select(element => element.ActiveCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnActive180Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 180, 180);
-            List<int> cutList = subList.Select(element => element.ActiveCases).ToList();
+            List<int> cutList = this.HalfYearList.Select(element => element.ActiveCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnActiveOverall()
         {
-            List<int> cutList = DataList.Select(element => element.ActiveCases).ToList();
+            List<int> cutList = this.OverallList.Select(element => element.ActiveCases).ToList();
             return cutList;
         }
         public List<int> ReturnConfirmed14Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 14, 14);
-            List<int> cutList = subList.Select(element => element.ConfirmedCases).ToList();
+            List<int> cutList = this.WeekList.Select(element => element.ConfirmedCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnConfirmed30Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 30, 30);
-            List<int> cutList = subList.Select(element => element.ConfirmedCases).ToList();
+            List<int> cutList = this.MonthList.Select(element => element.ConfirmedCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnConfirmed180Days()
         {
-            List<CovidStatisticsDataViewModel> subList = this.DataList.GetRange(this.Size - 180, 180);
-            List<int> cutList = subList.Select(element => element.ConfirmedCases).ToList();
+            List<int> cutList = this.HalfYearList.Select(element => element.ConfirmedCases).ToList();
             return cutList;
         }
 
         public List<int> ReturnConfirmedOverall()
         {
-            List<int> cutList = DataList.Select(element => element.ConfirmedCases).ToList();
+            List<int> cutList = this.OverallList.Select(element => element.ConfirmedCases).ToList();
             return cutList;
         }
     }
