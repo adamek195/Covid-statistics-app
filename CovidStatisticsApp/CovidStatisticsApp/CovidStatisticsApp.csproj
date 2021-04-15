@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="Client\ApiHelper.cs" />
     <Compile Include="DataProcessors\CovidDataProcessor.cs" />
+    <Compile Include="DataProcessors\PlotDataProcessor.cs" />
     <Compile Include="Infrastructure\MapperProfile.cs" />
     <Compile Include="Migrations\202103261755560_InitialMigration.cs" />
     <Compile Include="Migrations\202103261755560_InitialMigration.designer.cs">
