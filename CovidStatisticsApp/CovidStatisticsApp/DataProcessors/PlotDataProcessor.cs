@@ -1,12 +1,29 @@
 ﻿using CovidStatisticsApp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.DataProcessors
 {
+    public enum Period
+    {
+        TwoWeeks,
+        Month,
+        HalfYear,
+        Overall
+    }
+
+    public enum CaseType
+    {
+        Death,
+        Recovered,
+        Active,
+        Confirmed
+    }
+
     public class PlotDataProcessor
     {
         private readonly List<CovidStatisticsDataViewModel> WeekList;
@@ -22,82 +39,87 @@ namespace CovidStatisticsApp.DataProcessors
             this.OverallList = DataList;
         }
 
-        public List<int> ReturnDeaths14Days()
+        public List<int> ReturnCasesInGivenPeriodAndType(Period period, CaseType caseType)
         {
-            return this.WeekList.Select(element => element.DeathCases).ToList();
-        }
+            if (caseType == CaseType.Death)
+            {
+                if (period == Period.TwoWeeks)
+                {
+                    return this.WeekList.Select(element => element.DeathCases).ToList();
+                }
+                if (period == Period.Month)
+                {
+                    return this.MonthList.Select(element => element.DeathCases).ToList();
+                }
+                if (period == Period.HalfYear)
+                {
+                    return this.HalfYearList.Select(element => element.DeathCases).ToList();
+                }
+                if (period == Period.Overall)
+                {
+                    return this.OverallList.Select(element => element.DeathCases).ToList();
+                }
+            }
 
-        public List<int> ReturnDeaths30Days()
-        {
-            return this.MonthList.Select(element => element.DeathCases).ToList();
-        }
-        
-        public List<int> ReturnDeaths180Days()
-        {
-            return this.HalfYearList.Select(element => element.DeathCases).ToList();
-        }
-        
-        public List<int> ReturnDeathsOverall()
-        {
-            return this.OverallList.Select(element => element.DeathCases).ToList();
-        }
+            if (caseType == CaseType.Recovered)
+            {
+                if (period == Period.TwoWeeks)
+                {
+                    return this.WeekList.Select(element => element.RecoveredCases).ToList();
+                }
+                if (period == Period.Month)
+                {
+                    return this.MonthList.Select(element => element.RecoveredCases).ToList();
+                }
+                if (period == Period.HalfYear)
+                {
+                    return this.HalfYearList.Select(element => element.RecoveredCases).ToList();
+                }
+                if (period == Period.Overall)
+                {
+                    return this.OverallList.Select(element => element.RecoveredCases).ToList();
+                }
+            }
 
-        public List<int> ReturnRecovered14Days()
-        {
-            return this.WeekList.Select(element => element.RecoveredCases).ToList();
-        }
+            if (caseType == CaseType.Active)
+            {
+                if (period == Period.TwoWeeks)
+                {
+                    return this.WeekList.Select(element => element.ActiveCases).ToList();
+                }
+                if (period == Period.Month)
+                {
+                    return this.MonthList.Select(element => element.ActiveCases).ToList();
+                }
+                if (period == Period.HalfYear)
+                {
+                    return this.HalfYearList.Select(element => element.ActiveCases).ToList();
+                }
+                if (period == Period.Overall)
+                {
+                    return this.OverallList.Select(element => element.ActiveCases).ToList();
+                }
+            }
 
-        public List<int> ReturnRecovered30Days()
-        {
-            return this.MonthList.Select(element => element.RecoveredCases).ToList();
-        }
-
-        public List<int> ReturnRecovered180Days()
-        {
-            return this.HalfYearList.Select(element => element.RecoveredCases).ToList();
-        }
-
-        public List<int> ReturnRecoveredOverall()
-        {
-            return this.OverallList.Select(element => element.RecoveredCases).ToList();
-        }
-
-        public List<int> ReturnActive14Days()
-        {
-            return this.WeekList.Select(element => element.ActiveCases).ToList();
-        }
-
-        public List<int> ReturnActive30Days()
-        {
-            return this.MonthList.Select(element => element.ActiveCases).ToList();
-        }
-
-        public List<int> ReturnActive180Days()
-        {
-            return this.HalfYearList.Select(element => element.ActiveCases).ToList();
-        }
-
-        public List<int> ReturnActiveOverall()
-        {
-            return this.OverallList.Select(element => element.ActiveCases).ToList();
-        }
-        public List<int> ReturnConfirmed14Days()
-        {
-            return this.WeekList.Select(element => element.ConfirmedCases).ToList();
-        }
-
-        public List<int> ReturnConfirmed30Days()
-        {
-            return this.MonthList.Select(element => element.ConfirmedCases).ToList();
-        }
-
-        public List<int> ReturnConfirmed180Days()
-        {
-            return this.HalfYearList.Select(element => element.ConfirmedCases).ToList();
-        }
-
-        public List<int> ReturnConfirmedOverall()
-        {
+            if (caseType == CaseType.Confirmed)
+            {
+                if (period == Period.TwoWeeks)
+                {
+                    return this.WeekList.Select(element => element.ConfirmedCases).ToList();
+                }
+                if (period == Period.Month)
+                {
+                    return this.MonthList.Select(element => element.ConfirmedCases).ToList();
+                }
+                if (period == Period.HalfYear)
+                {
+                    return this.HalfYearList.Select(element => element.ConfirmedCases).ToList();
+                }
+                if (period == Period.Overall)
+                {
+                    return this.OverallList.Select(element => element.ConfirmedCases).ToList();
+                }
+            }
             return this.OverallList.Select(element => element.ConfirmedCases).ToList();
         }
     }
