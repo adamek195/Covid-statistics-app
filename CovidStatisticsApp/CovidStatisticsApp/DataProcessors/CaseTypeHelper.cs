@@ -11,10 +11,10 @@ namespace CovidStatisticsApp.DataProcessors
     class CaseTypeHelper
     {
 
-        private List<int> DeathCases;
-        private List<int> ActiveCases;
-        private List<int> RecoveredCases;
-        private List<int> ConfirmedCases;
+        private readonly List<int> DeathCases;
+        private readonly List<int> ActiveCases;
+        private readonly List<int> RecoveredCases;
+        private readonly List<int> ConfirmedCases;
 
         public CaseTypeHelper(List<CovidStatisticsDataViewModel> DataList)
         {
