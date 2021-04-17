@@ -137,7 +137,7 @@
         </FlowDocumentScrollViewer>
         <StackPanel Margin="0,10,35,0" HorizontalAlignment="Right">
             <Label FontWeight="Bold" FontSize="14" FontFamily="..\Fonts\#Dosis">Select period</Label>
-            <RadioButton x:Name="RadioButtonLastWeek" GroupName="period" IsChecked="True" FontSize="13">Last week</RadioButton>
+            <RadioButton x:Name="RadioButtonLast2Weeks" GroupName="period" IsChecked="True" FontSize="13">Last 2 weeks</RadioButton>
             <RadioButton x:Name="RadioButtonLastMonth" GroupName="period" FontSize="13">Last month</RadioButton>
             <RadioButton x:Name="RadioButtonLastSixMonths" GroupName="period" FontSize="13">Last 6 months</RadioButton>
             <RadioButton x:Name="RadioButtonOverall" GroupName="period" FontSize="13">Overall</RadioButton>
