@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CovidStatisticsApp.DataProcessors
 {
 
-    class CaseTypeHelper
+    public class CaseTypeHelper
     {
 
         private readonly List<int> DeathCases;
