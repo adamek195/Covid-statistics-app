@@ -60,6 +60,7 @@ namespace CovidStatisticsApp.UnitTests
     public class CaseTypeHelperTests
     {
         List<CovidStatisticsDataViewModel> testCovidModel;
+        CaseTypeHelper caseTypeHelper;
 
         [TestInitialize]
         public void TestInitialize()
@@ -81,38 +82,31 @@ namespace CovidStatisticsApp.UnitTests
                     RecoveredCases = 300,
                 }
             };
-
+            this.caseTypeHelper = new CaseTypeHelper(testCovidModel);
         }
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsConfirmedStatsListWhenConfirmedCasesEnumValueGiven()
         {
-            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ConfirmedCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Confirmed));
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ConfirmedCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Confirmed));
         }
-
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsActiveStatsListWhenActiveCasesEnumValueGiven()
         {
-            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ActiveCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Active));
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ActiveCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Active));
         }
-
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsRecoveredStatsListWhenRecoveredCasesEnumValueGiven()
         {
-            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.RecoveredCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Recovered));
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.RecoveredCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Recovered));
         }
-
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsDeathStatsListWhenDeathCasesEnumValueGiven()
         {
-            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.DeathCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Death));
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.DeathCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Death));
         }
     }
 }
