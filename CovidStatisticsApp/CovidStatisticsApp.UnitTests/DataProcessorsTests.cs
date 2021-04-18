@@ -88,25 +88,76 @@ namespace CovidStatisticsApp.UnitTests
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsConfirmedStatsListWhenConfirmedCasesEnumValueGiven()
         {
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ConfirmedCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Confirmed));
+            CollectionAssert.AreEqual(this.testCovidModel.Select(x => x.ConfirmedCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Confirmed));
         }
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsActiveStatsListWhenActiveCasesEnumValueGiven()
         {
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ActiveCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Active));
+            CollectionAssert.AreEqual(this.testCovidModel.Select(x => x.ActiveCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Active));
         }
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsRecoveredStatsListWhenRecoveredCasesEnumValueGiven()
         {
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.RecoveredCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Recovered));
+            CollectionAssert.AreEqual(this.testCovidModel.Select(x => x.RecoveredCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Recovered));
         }
 
         [TestMethod]
         public void Test_CaseTypeHelper_ReturnsDeathStatsListWhenDeathCasesEnumValueGiven()
         {
-            CollectionAssert.AreEqual(testCovidModel.Select(x => x.DeathCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Death));
+            CollectionAssert.AreEqual(this.testCovidModel.Select(x => x.DeathCases).ToList(), this.caseTypeHelper.GetSpecificCases(CaseType.Death));
+        }
+    }
+
+
+    [TestClass]
+    public class PlotDataProcessorTests
+    {
+        private List<CovidStatisticsDataViewModel> testCovidModelList;
+        private IEnumerable<Period> periodValues;
+        private IEnumerable<CaseType> caseTypeValues;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            var generator = new Random();
+            var overallDays = generator.Next(minValue: 200, maxValue: 500);
+            this.testCovidModelList = new List<CovidStatisticsDataViewModel>();
+
+            for (int i = 0; i < overallDays; i++)
+            {
+                var covidStatsModel = new CovidStatisticsDataViewModel
+                {
+                    ActiveCases = generator.Next(minValue: 300, maxValue: 30000),
+                    ConfirmedCases = generator.Next(minValue: 300, maxValue: 30000),
+                    DeathCases = generator.Next(minValue: 300, maxValue: 30000),
+                    RecoveredCases = generator.Next(minValue: 300, maxValue: 30000),
+                };
+                this.testCovidModelList.Add(covidStatsModel);
+            }
+            this.periodValues = Enum.GetValues(typeof(Period)).Cast<Period>();
+            this.caseTypeValues = Enum.GetValues(typeof(CaseType)).Cast<CaseType>();
+        }
+
+        [TestMethod]
+        public void Test_PlotDataProcessor_ReturnsCorrectListFromGivenPeriodAndCaseType()
+        {
+            foreach(var caseTypeValue in this.caseTypeValues)
+            {
+                foreach(var periodValue in this.periodValues)
+                {
+                    PlotDataProcessor plotDataProcessor = new PlotDataProcessor(this.testCovidModelList);
+                    var dataList = plotDataProcessor.ReturnCasesInGivenPeriodAndType(periodValue, caseTypeValue);
+
+                    CaseTypeHelper caseTypeHelper = new CaseTypeHelper(this.testCovidModelList);
+                    var listWithSpecifiedType = caseTypeHelper.GetSpecificCases(caseTypeValue);
+                    var periodHelper = new PeriodHelper(listWithSpecifiedType);
+                    var listWithSpecifiedTypeAndPeriod = periodHelper.GetSpecificPeriod(periodValue);
+
+                    CollectionAssert.AreEqual(dataList, listWithSpecifiedTypeAndPeriod);
+                }
+            }
         }
     }
 }
