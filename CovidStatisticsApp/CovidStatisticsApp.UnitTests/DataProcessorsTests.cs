@@ -85,6 +85,30 @@ namespace CovidStatisticsApp.UnitTests
         }
 
         [TestMethod]
+        public void Test_CaseTypeHelper_ReturnsConfirmedStatsListWhenConfirmedCasesEnumValueGiven()
+        {
+            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ConfirmedCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Confirmed));
+        }
+
+
+        [TestMethod]
+        public void Test_CaseTypeHelper_ReturnsActiveStatsListWhenActiveCasesEnumValueGiven()
+        {
+            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.ActiveCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Active));
+        }
+
+
+        [TestMethod]
+        public void Test_CaseTypeHelper_ReturnsRecoveredStatsListWhenRecoveredCasesEnumValueGiven()
+        {
+            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.RecoveredCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Recovered));
+        }
+
+
+        [TestMethod]
         public void Test_CaseTypeHelper_ReturnsDeathStatsListWhenDeathCasesEnumValueGiven()
         {
             var caseTypeHelper = new CaseTypeHelper(testCovidModel);
