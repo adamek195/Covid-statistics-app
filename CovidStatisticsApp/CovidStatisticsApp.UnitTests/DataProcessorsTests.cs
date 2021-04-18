@@ -3,11 +3,12 @@ using System;
 using CovidStatisticsApp.DataProcessors;
 using System.Collections.Generic;
 using System.Linq;
+using CovidStatisticsApp.ViewModels;
 
 namespace CovidStatisticsApp.UnitTests
 {
     [TestClass]
-    public class CaseTypeHelperTests
+    public class PeriodHelperTests
     {
         List<int> randomCasesList;
         int OverallDays;
@@ -26,31 +27,68 @@ namespace CovidStatisticsApp.UnitTests
         }
 
         [TestMethod]
-        public void Test_CaseTypeHelper_ReturnsTwoWeeksAs14Days()
+        public void Test_PeriodHelper_ReturnsTwoWeeksAs14Days()
         {
             var periodHelper = new PeriodHelper(this.randomCasesList);
             Assert.AreEqual<int>(periodHelper.GetSpecificPeriod(Period.TwoWeeks).Count, 14);
         }
 
         [TestMethod]
-        public void Test_CaseTypeHelper_ReturnsMonthAs30Days()
+        public void Test_PeriodHelper_ReturnsMonthAs30Days()
         {
             var periodHelper = new PeriodHelper(this.randomCasesList);
             Assert.AreEqual<int>(periodHelper.GetSpecificPeriod(Period.Month).Count, 30);
         }
 
         [TestMethod]
-        public void Test_CaseTypeHelper_ReturnsHalfYearAs180Days()
+        public void Test_PeriodHelper_ReturnsHalfYearAs180Days()
         {
             var periodHelper = new PeriodHelper(this.randomCasesList);
             Assert.AreEqual<int>(periodHelper.GetSpecificPeriod(Period.HalfYear).Count, 180);
         }
 
         [TestMethod]
-        public void Test_CaseTypeHelper_ReturnsOverallAsOverallDays()
+        public void Test_PeriodHelper_ReturnsOverallAsOverallDays()
         {
             var periodHelper = new PeriodHelper(this.randomCasesList);
             Assert.AreEqual<int>(periodHelper.GetSpecificPeriod(Period.Overall).Count, this.OverallDays);
+        }
+    }
+
+
+    [TestClass]
+    public class CaseTypeHelperTests
+    {
+        List<CovidStatisticsDataViewModel> testCovidModel;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            this.testCovidModel = new List<CovidStatisticsDataViewModel>()
+            {
+                new CovidStatisticsDataViewModel
+                {
+                    ActiveCases = 1200,
+                    ConfirmedCases = 200,
+                    DeathCases = 10,
+                    RecoveredCases = 200,
+                },
+                new CovidStatisticsDataViewModel
+                {
+                    ActiveCases = 2200,
+                    ConfirmedCases = 1200,
+                    DeathCases = 30,
+                    RecoveredCases = 300,
+                }
+            };
+
+        }
+
+        [TestMethod]
+        public void Test_CaseTypeHelper_ReturnsDeathStatsListWhenDeathCasesEnumValueGiven()
+        {
+            var caseTypeHelper = new CaseTypeHelper(testCovidModel);
+            CollectionAssert.AreEqual(testCovidModel.Select(x => x.DeathCases).ToList(), caseTypeHelper.GetSpecificCases(CaseType.Death));
         }
     }
 }
