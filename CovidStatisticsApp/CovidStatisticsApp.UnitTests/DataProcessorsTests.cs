@@ -178,11 +178,23 @@ namespace CovidStatisticsApp.UnitTests
         }
 
         [TestMethod]
-        public async Task Test_CovidDataProcessor_LoadsDataFromCountry()
+        public async Task Test_CovidDataProcessor_RetrieveCorrectDataFromAPIWithCorrectCountryGiven()
         {
-            string country = "poland";
-            var dataLoaded = await CovidDataProcessor.LoadCountryOverallStats(country);
-            Assert.IsNotNull(dataLoaded);
+            foreach (var correctCountry in this.correctCountries)
+            {
+                var dataLoaded = await CovidDataProcessor.LoadCountryOverallStats(correctCountry);
+                Assert.IsNotNull(dataLoaded);
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public async Task Test_CovidDataProcessor_RaisesErrorWhenIncorrectCountryNameGiven()
+        {
+            foreach (var invalidCountry in this.invalidCountries)
+            {
+                _ = await CovidDataProcessor.LoadCountryOverallStats(invalidCountry);
+            }
         }
     }
 }
