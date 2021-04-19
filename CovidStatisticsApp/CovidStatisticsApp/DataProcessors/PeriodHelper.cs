@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.DataProcessors
 {
-    class PeriodHelper
+    public class PeriodHelper
     {
         private readonly List<int> TwoWeeksList;
         private readonly List<int> MonthList;
