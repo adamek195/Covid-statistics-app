@@ -4,6 +4,8 @@ using CovidStatisticsApp.DataProcessors;
 using System.Collections.Generic;
 using System.Linq;
 using CovidStatisticsApp.ViewModels;
+using System.Threading.Tasks;
+using CovidStatisticsApp.Client;
 
 namespace CovidStatisticsApp.UnitTests
 {
@@ -158,6 +160,29 @@ namespace CovidStatisticsApp.UnitTests
                     CollectionAssert.AreEqual(dataList, listWithSpecifiedTypeAndPeriod);
                 }
             }
+        }
+    }
+
+
+    [TestClass]
+    public class CovidDataProcessorTests 
+    {
+        List<string> correctCountries;
+        List<string> invalidCountries;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            this.correctCountries = new List<string>(new string[] { "Poland", "Germany", "India" , "USA"});
+            this.invalidCountries = new List<string>(new string[] { "Apple", "420", "Country" });
+        }
+
+        [TestMethod]
+        public async Task Test_CovidDataProcessor_LoadsDataFromCountry()
+        {
+            string country = "poland";
+            var dataLoaded = await CovidDataProcessor.LoadCountryOverallStats(country);
+            Assert.IsNotNull(dataLoaded);
         }
     }
 }

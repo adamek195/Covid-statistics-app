@@ -30,9 +30,7 @@ namespace CovidStatisticsApp
             countriesRepository = new CountriesRepository();
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ApiHelper.InitializeClient();
         }
-
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {

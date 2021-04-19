@@ -15,6 +15,7 @@ namespace CovidStatisticsApp.DataProcessors
     {
         public static async Task<List<CovidStatisticsDataViewModel>> LoadCountryOverallStats(string country)
         {
+            ApiHelper.InitializeClient();
             string url = $"https://api.covid19api.com/total/country/{ country }";
 
             using (HttpResponseMessage response = await ApiHelper.APIClient.GetAsync(url))
