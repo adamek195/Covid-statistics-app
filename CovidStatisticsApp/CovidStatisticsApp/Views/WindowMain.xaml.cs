@@ -3,6 +3,7 @@ using CovidStatisticsApp.DataProcessors;
 using CovidStatisticsApp.Models.Entities;
 using CovidStatisticsApp.Repositories;
 using CovidStatisticsApp.ViewModels;
+using OxyPlot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,12 @@ namespace CovidStatisticsApp
     {
         private readonly CountriesRepository countriesRepository;
 
+        public PlotModel CovidModel { get; set; }
+        public PlotModel plot = new PlotModel { };
+
         public MainWindow()
         {
+            this.CovidModel = plot;
             countriesRepository = new CountriesRepository();
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -39,30 +44,116 @@ namespace CovidStatisticsApp
             AutoCompleteBoxCountry.ItemsSource = countriesRepository.GetCountryNames();
         }
 
-        private async void LoadCovidData(string country)
+        private async Task<List<int>> LoadCovidData(string country, Period period, CaseType caseType)
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
+            PlotDataProcessor plotDataProcessor = new PlotDataProcessor(statisticsList);
+            var covidData = plotDataProcessor.ReturnCasesInGivenPeriodAndType(period, caseType);
+            return covidData;
         }
 
-        private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
+        private async void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
+            CovidModel.InvalidatePlot(true);
+            CovidModel.Series.Clear();
             string countryName = AutoCompleteBoxCountry.Text;
+            Period period = Period.TwoWeeks;
+            CaseType caseType = CaseType.Active;
+            List<int> covidPeriod = new List<int>();
 
             if (countriesRepository.FindCountryByName(countryName))
             {
+                if(RadioButtonActiveCases.IsChecked == true)
+                {
+                    caseType = CaseType.Active;
+                }
+
+                if (RadioButtonConfirmedCases.IsChecked == true)
+                {
+                    caseType = CaseType.Confirmed;
+                }
+
+                if (RadioButtonDeathCases.IsChecked == true)
+                {
+                    caseType = CaseType.Death;
+                }
+
+                if (RadioButtonRecoveredCases.IsChecked == true)
+                {
+                    caseType = CaseType.Recovered;
+                }
+
+                if(RadioButtonLast2Weeks.IsChecked == true)
+                {
+                    period = Period.TwoWeeks;
+                }
+
+                if (RadioButtonLastMonth.IsChecked == true)
+                {
+                    period = Period.Month;
+                }
+
+                if (RadioButtonLastSixMonths.IsChecked == true)
+                {
+                    period = Period.HalfYear;
+                }
+
+                if (RadioButtonOverall.IsChecked == true)
+                {
+                    period = Period.Overall;
+                }
+
                 try
                 {
-                    LoadCovidData(countryName);
+                    List<int> covidData = await LoadCovidData(countryName, period, caseType);
+
+                    for (int i = 0; i < covidData.Count; i++)
+                    {
+                        covidPeriod.Add(i);
+                    }
+
+                    this.CovidModel = new PlotModel { Title = "Covid Plot" };
+                    OxyPlot.Series.LineSeries series = new OxyPlot.Series.LineSeries();
+
+                    for (int i = 0; i < covidPeriod.Count; i++)
+                    {
+                        series.Points.Add(new DataPoint(covidPeriod[i], covidData[i]));
+                    }
+
+                    plot.Series.Add(series);
+                    this.CovidModel = plot;
+                    this.DataContext = this;
+                    this.CovidModel.InvalidatePlot(true);
                 }
                 catch (Exception exc)
                 {
                     Console.WriteLine(exc);
                 }
+
             }
             else
             {
                 MessageBox.Show("There is no such country in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            /*this.CovidModel = new PlotModel { Title = "Example 1" };
+            System.Diagnostics.Debug.WriteLine("Single Clicked!!!!");
+            OxyPlot.Series.LineSeries series = new OxyPlot.Series.LineSeries();
+            List<int> XValues = new List<int> { 0, 5, 10, 22, 30 };
+            List<int> YValues = new List<int> { 2, 11, 4, 15, 20 };
+            this.CovidModel = new PlotModel { Title = "Example 1" };
+            System.Diagnostics.Debug.WriteLine(XValues.Count);
+            for (int i = 0; i < XValues.Count; i++)
+            {
+                System.Diagnostics.Debug.WriteLine(XValues[i] + "," + YValues[i]);
+                series.Points.Add(new DataPoint(XValues[i], YValues[i]));
+            }
+
+            plot.Series.Add(series);
+            this.CovidModel = plot;
+            this.DataContext = this;
+            this.CovidModel.InvalidatePlot(true);
+            System.Diagnostics.Debug.WriteLine(CovidModel.Series.Count);*/
         }
     }
 }
