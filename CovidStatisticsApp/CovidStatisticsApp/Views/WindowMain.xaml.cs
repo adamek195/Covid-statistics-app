@@ -42,13 +42,6 @@ namespace CovidStatisticsApp
         private async void LoadCovidData(string country)
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
-            var yesterdayStats = statisticsList[statisticsList.Count - 1];
-            TextBlockConfirmedCases.Text = yesterdayStats.ConfirmedCases.ToString();
-            TextBlockDeathCases.Text = yesterdayStats.DeathCases.ToString();
-            TextBlockRecoveredCases.Text = yesterdayStats.RecoveredCases.ToString();
-            TextBlockActiveCases.Text = yesterdayStats.ActiveCases.ToString();
-            TextBlockCountry.Text = yesterdayStats.Country.ToString();
-            TextBlockDate.Text = yesterdayStats.Date.ToString();
         }
 
         private void ButtonSearchData_Click(object sender, RoutedEventArgs e)
