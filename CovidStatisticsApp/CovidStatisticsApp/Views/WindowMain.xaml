@@ -71,9 +71,9 @@
         <Label x:Name="LabelCovidPlot" Content="Plot:" HorizontalAlignment="Left"
                Margin="665,140,0,0" VerticalAlignment="Top" Width="57" FontWeight="Bold" FontFamily="..\Fonts\#Dosis" FontSize="22"/>
 
-        <oxy:PlotView x:Name="CovidPlot"  Model="{Binding CovidModel}"  Margin="429,183,27.667,34" />
+        <oxy:PlotView x:Name="CovidPlot"  Model="{Binding CovidModel}"  Margin="405,183,27.667,34" />
 
-        <StackPanel Margin="0,272,588.667,84.667" HorizontalAlignment="Right" Width="114">
+        <StackPanel Margin="0,272,616.667,85" HorizontalAlignment="Right" Width="120">
             <Label FontWeight="Bold" FontSize="14" FontFamily="..\Fonts\#Dosis">Select period:</Label>
             <RadioButton x:Name="RadioButtonLast2Weeks" GroupName="period" IsChecked="True" FontSize="13">Last 2 weeks</RadioButton>
             <RadioButton x:Name="RadioButtonLastMonth" GroupName="period" FontSize="13">Last month</RadioButton>

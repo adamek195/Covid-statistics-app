@@ -56,6 +56,7 @@ namespace CovidStatisticsApp
         {
             CovidModel.InvalidatePlot(true);
             CovidModel.Series.Clear();
+            CovidModel.Axes.Clear();
             string countryName = AutoCompleteBoxCountry.Text;
             Period period = Period.TwoWeeks;
             CaseType caseType = CaseType.Active;
@@ -120,7 +121,23 @@ namespace CovidStatisticsApp
                         series.Points.Add(new DataPoint(covidPeriod[i], covidData[i]));
                     }
 
+                    var y_axis = new OxyPlot.Axes.LinearAxis
+                    {
+                        Position = OxyPlot.Axes.AxisPosition.Left,
+                        FontWeight= 700,
+                        Title = "Type Case"
+                    };
+
+                    var x_axis = new OxyPlot.Axes.LinearAxis
+                    {
+                        Position = OxyPlot.Axes.AxisPosition.Bottom,
+                        FontWeight = 700,
+                        Title = "Period time"
+                    };
+
                     plot.Series.Add(series);
+                    plot.Axes.Add(y_axis);
+                    plot.Axes.Add(x_axis);
                     this.CovidModel = plot;
                     this.DataContext = this;
                     this.CovidModel.InvalidatePlot(true);
@@ -135,25 +152,6 @@ namespace CovidStatisticsApp
             {
                 MessageBox.Show("There is no such country in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            /*this.CovidModel = new PlotModel { Title = "Example 1" };
-            System.Diagnostics.Debug.WriteLine("Single Clicked!!!!");
-            OxyPlot.Series.LineSeries series = new OxyPlot.Series.LineSeries();
-            List<int> XValues = new List<int> { 0, 5, 10, 22, 30 };
-            List<int> YValues = new List<int> { 2, 11, 4, 15, 20 };
-            this.CovidModel = new PlotModel { Title = "Example 1" };
-            System.Diagnostics.Debug.WriteLine(XValues.Count);
-            for (int i = 0; i < XValues.Count; i++)
-            {
-                System.Diagnostics.Debug.WriteLine(XValues[i] + "," + YValues[i]);
-                series.Points.Add(new DataPoint(XValues[i], YValues[i]));
-            }
-
-            plot.Series.Add(series);
-            this.CovidModel = plot;
-            this.DataContext = this;
-            this.CovidModel.InvalidatePlot(true);
-            System.Diagnostics.Debug.WriteLine(CovidModel.Series.Count);*/
         }
     }
 }
