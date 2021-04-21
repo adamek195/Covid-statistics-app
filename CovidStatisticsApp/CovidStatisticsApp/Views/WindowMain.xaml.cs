@@ -124,7 +124,10 @@ namespace CovidStatisticsApp
                     var y_axis = new OxyPlot.Axes.LinearAxis
                     {
                         Position = OxyPlot.Axes.AxisPosition.Left,
-                        FontWeight= 700,
+                        FontWeight = 700,
+                        MajorGridlineStyle = OxyPlot.LineStyle.Solid,
+                        MinorGridlineStyle = OxyPlot.LineStyle.Dot,
+                        MajorGridlineColor = OxyColor.FromUInt32(0xFFD3D3D3),
                         Title = "Type Case"
                     };
 
@@ -132,7 +135,10 @@ namespace CovidStatisticsApp
                     {
                         Position = OxyPlot.Axes.AxisPosition.Bottom,
                         FontWeight = 700,
-                        Title = "Period time"
+                        MajorGridlineStyle = OxyPlot.LineStyle.Solid,
+                        MinorGridlineStyle = OxyPlot.LineStyle.Dot,
+                        MajorGridlineColor = OxyColor.FromUInt32(0xFFD3D3D3),
+                        Title = "Period"
                     };
 
                     plot.Series.Add(series);
