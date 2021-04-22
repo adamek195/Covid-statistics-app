@@ -56,24 +56,25 @@
         </controls:AutoCompleteBox>
 
         <Label x:Name="LabelDatabaseCountries" Content="Countries from database:" HorizontalAlignment="Left"
-               Margin="33,227,0,0" VerticalAlignment="Top" Width="219" FontWeight="Bold" FontFamily="..\Fonts\#Dosis" FontSize="14"/>
+               Margin="33,183,0,0" VerticalAlignment="Top" Width="219" FontWeight="Bold" FontFamily="..\Fonts\#Dosis" FontSize="14"/>
 
         <DataGrid x:Name="DataGridCountries"
                             CanUserDeleteRows="False"
                             CanUserResizeRows="False"
                             ColumnWidth="145"
+                            ColumnHeaderHeight="10"
                             IsReadOnly="True"
                             SelectionMode="Single"
                             SelectionUnit="FullRow"
                             AlternatingRowBackground="Gray" AlternationCount="2"
-                            RowBackground="#FE6584" Margin="33,273,804.667,80" SelectionChanged="DataGridCountries_SelectionChanged"/>
+                            RowBackground="#FE6584" Margin="33,216,807.667,34" SelectionChanged="DataGridCountries_SelectionChanged"/>
 
         <Label x:Name="LabelCovidPlot" Content="Plot:" HorizontalAlignment="Left"
-               Margin="665,140,0,0" VerticalAlignment="Top" Width="57" FontWeight="Bold" FontFamily="..\Fonts\#Dosis" FontSize="22"/>
+               Margin="612,140,0,0" VerticalAlignment="Top" Width="57" FontWeight="Bold" FontFamily="..\Fonts\#Dosis" FontSize="22"/>
 
-        <oxy:PlotView x:Name="CovidPlot"  Model="{Binding CovidModel}"  Margin="405,183,27.667,34" />
+        <oxy:PlotView x:Name="CovidPlot"  Model="{Binding CovidModel}"  Margin="312,183,27.667,34" />
 
-        <StackPanel Margin="0,272,616.667,85" HorizontalAlignment="Right" Width="120">
+        <StackPanel Margin="0,272,687.667,85" HorizontalAlignment="Right" Width="106">
             <Label FontWeight="Bold" FontSize="14" FontFamily="..\Fonts\#Dosis">Select period:</Label>
             <RadioButton x:Name="RadioButtonLast2Weeks" GroupName="period" IsChecked="True" FontSize="13">Last 2 weeks</RadioButton>
             <RadioButton x:Name="RadioButtonLastMonth" GroupName="period" FontSize="13">Last month</RadioButton>
