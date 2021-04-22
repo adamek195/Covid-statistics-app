@@ -52,6 +52,30 @@ namespace CovidStatisticsApp
             return covidData;
         }
 
+        private static string formatter(double d)
+        {
+            if (d < 1E3)
+            {
+                return String.Format("{0}", d);
+            }
+            else if (d >= 1E3 && d < 1E6)
+            {
+                return String.Format("{0}K", d / 1E3);
+            }
+            else if (d >= 1E6 && d < 1E9)
+            {
+                return String.Format("{0}M", d / 1E6);
+            }
+            else if (d >= 1E9)
+            {
+                return String.Format("{0}B", d / 1E9);
+            }
+            else
+            {
+                return String.Format("{0}", d);
+            }
+        }
+
         private async void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
             CovidModel.InvalidatePlot(true);
@@ -125,10 +149,11 @@ namespace CovidStatisticsApp
                     {
                         Position = OxyPlot.Axes.AxisPosition.Left,
                         FontWeight = 700,
+                        LabelFormatter = formatter,
                         MajorGridlineStyle = OxyPlot.LineStyle.Solid,
                         MinorGridlineStyle = OxyPlot.LineStyle.Dot,
                         MajorGridlineColor = OxyColor.FromUInt32(0xFFD3D3D3),
-                        Title = "Type Case"
+                        Title = "Case Type"
                     };
 
                     var x_axis = new OxyPlot.Axes.LinearAxis
