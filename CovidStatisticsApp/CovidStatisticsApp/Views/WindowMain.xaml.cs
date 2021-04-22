@@ -159,5 +159,11 @@ namespace CovidStatisticsApp
                 MessageBox.Show("There is no such country in the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void DataGridCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CountryViewModel countryViewModel = (CountryViewModel)DataGridCountries.CurrentCell.Item;
+            AutoCompleteBoxCountry.Text = countryViewModel.Name;
+        }
     }
 }
