@@ -48,7 +48,7 @@ namespace CovidStatisticsApp
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
             PlotDataProcessor plotDataProcessor = new PlotDataProcessor(statisticsList);
-            var covidData = plotDataProcessor.ReturnCasesInGivenPeriodAndType(period, caseType);
+            var covidData = plotDataProcessor.ReturnCasesInGivenPeriodAndType(period, caseType, false);
             return covidData;
         }
 

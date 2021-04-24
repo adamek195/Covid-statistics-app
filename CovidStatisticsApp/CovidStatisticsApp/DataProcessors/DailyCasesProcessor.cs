@@ -28,9 +28,9 @@ namespace CovidStatisticsApp.DataProcessors
                     RecoveredCases = 0
                 }
             };
-            for (int i = 0; i < this.DataList.Count - 1; i++)
+            for (int i = 1; i < this.DataList.Count - 1; i++)
             {
-                DailyCasesList.Add(this.DataList[i] - this.DataList[i + 1]);
+                DailyCasesList.Add(this.DataList[i] - this.DataList[i - 1]);
             }
             return DailyCasesList;
         }

@@ -143,14 +143,14 @@ namespace CovidStatisticsApp.UnitTests
         }
 
         [TestMethod]
-        public void Test_PlotDataProcessor_ReturnsCorrectListFromGivenPeriodAndCaseType()
+        public void Test_PlotDataProcessor_ReturnsCorrectListFromGivenPeriodAndCaseTypeTotal()
         {
             foreach(var caseTypeValue in this.caseTypeValues)
             {
                 foreach(var periodValue in this.periodValues)
                 {
                     PlotDataProcessor plotDataProcessor = new PlotDataProcessor(this.testCovidModelList);
-                    var dataList = plotDataProcessor.ReturnCasesInGivenPeriodAndType(periodValue, caseTypeValue);
+                    var dataList = plotDataProcessor.ReturnCasesInGivenPeriodAndType(periodValue, caseTypeValue, false);
 
                     CaseTypeHelper caseTypeHelper = new CaseTypeHelper(this.testCovidModelList);
                     var listWithSpecifiedType = caseTypeHelper.GetSpecificCases(caseTypeValue);
