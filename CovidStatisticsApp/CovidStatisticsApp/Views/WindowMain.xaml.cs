@@ -138,6 +138,7 @@ namespace CovidStatisticsApp
                 {
                     isDaily = true;
                 }
+
                 try
                 {
                     List<int> covidData = await LoadCovidData(countryName, period, caseType, isDaily);
@@ -149,7 +150,6 @@ namespace CovidStatisticsApp
 
                     this.CovidModel = new PlotModel { Title = "Covid Plot" };
                     OxyPlot.Series.LineSeries series = new OxyPlot.Series.LineSeries();
-
                     for (int i = 0; i < covidPeriod.Count; i++)
                     {
                         series.Points.Add(new DataPoint(covidPeriod[i], covidData[i]));
