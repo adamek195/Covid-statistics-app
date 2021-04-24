@@ -154,10 +154,32 @@ namespace CovidStatisticsApp.UnitTests
 
                     CaseTypeHelper caseTypeHelper = new CaseTypeHelper(this.testCovidModelList);
                     var listWithSpecifiedType = caseTypeHelper.GetSpecificCases(caseTypeValue);
-                    var periodHelper = new PeriodHelper(listWithSpecifiedType);
+                    PeriodHelper periodHelper = new PeriodHelper(listWithSpecifiedType);
                     var listWithSpecifiedTypeAndPeriod = periodHelper.GetSpecificPeriod(periodValue);
 
                     CollectionAssert.AreEqual(dataList, listWithSpecifiedTypeAndPeriod);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void Test_PlotDataProcessor_ReturnsCorrectListFromGivenPeriodAndCaseTypeDaily()
+        {
+            foreach (var caseTypeValue in this.caseTypeValues)
+            {
+                foreach (var periodValue in this.periodValues)
+                {
+                    PlotDataProcessor plotDataProcessor = new PlotDataProcessor(this.testCovidModelList);
+                    var dataList = plotDataProcessor.ReturnCasesInGivenPeriodAndType(periodValue, caseTypeValue, true);
+
+                    DailyCasesProcessor dailyCasesProcessor = new DailyCasesProcessor(this.testCovidModelList);
+                    var dailyCasesTestList = dailyCasesProcessor.CalculateDailyCases();
+                    CaseTypeHelper caseTypeHelper = new CaseTypeHelper(dailyCasesTestList);
+                    var listWithSpecifiedTypeDaily = caseTypeHelper.GetSpecificCases(caseTypeValue);
+                    PeriodHelper periodHelper = new PeriodHelper(listWithSpecifiedTypeDaily);
+                    var listWithSpecifiedTypeAndPeriodDaily = periodHelper.GetSpecificPeriod(periodValue);
+
+                    CollectionAssert.AreEqual(dataList, listWithSpecifiedTypeAndPeriodDaily);
                 }
             }
         }
