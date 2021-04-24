@@ -44,11 +44,11 @@ namespace CovidStatisticsApp
             AutoCompleteBoxCountry.ItemsSource = countriesRepository.GetCountryNames();
         }
 
-        private async Task<List<int>> LoadCovidData(string country, Period period, CaseType caseType)
+        private async Task<List<int>> LoadCovidData(string country, Period period, CaseType caseType, bool isDaily)
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
             PlotDataProcessor plotDataProcessor = new PlotDataProcessor(statisticsList);
-            var covidData = plotDataProcessor.ReturnCasesInGivenPeriodAndType(period, caseType, false);
+            var covidData = plotDataProcessor.ReturnCasesInGivenPeriodAndType(period, caseType, isDaily);
             return covidData;
         }
 
@@ -84,6 +84,7 @@ namespace CovidStatisticsApp
             string countryName = AutoCompleteBoxCountry.Text;
             Period period = Period.TwoWeeks;
             CaseType caseType = CaseType.Active;
+            bool isDaily = false;
             List<int> covidPeriod = new List<int>();
 
             if (countriesRepository.FindCountryByName(countryName))
@@ -128,9 +129,18 @@ namespace CovidStatisticsApp
                     period = Period.Overall;
                 }
 
+                if (RadioButtonTotalCases.IsChecked == true)
+                {
+                    isDaily = false;
+                }
+
+                if (RadioButtonDailyCases.IsChecked == true)
+                {
+                    isDaily = true;
+                }
                 try
                 {
-                    List<int> covidData = await LoadCovidData(countryName, period, caseType);
+                    List<int> covidData = await LoadCovidData(countryName, period, caseType, isDaily);
 
                     for (int i = 0; i < covidData.Count; i++)
                     {
@@ -153,7 +163,7 @@ namespace CovidStatisticsApp
                         MajorGridlineStyle = OxyPlot.LineStyle.Solid,
                         MinorGridlineStyle = OxyPlot.LineStyle.Dot,
                         MajorGridlineColor = OxyColor.FromUInt32(0xFFD3D3D3),
-                        Title = "Case Type"
+                        Title = "Number of cases"
                     };
 
                     var x_axis = new OxyPlot.Axes.LinearAxis
@@ -163,7 +173,7 @@ namespace CovidStatisticsApp
                         MajorGridlineStyle = OxyPlot.LineStyle.Solid,
                         MinorGridlineStyle = OxyPlot.LineStyle.Dot,
                         MajorGridlineColor = OxyColor.FromUInt32(0xFFD3D3D3),
-                        Title = "Period"
+                        Title = "Days"
                     };
 
                     plot.Series.Add(series);
