@@ -68,7 +68,7 @@ It will update database in app.
 
 4. You can click button Change password or button Sign up if you want to create account
 
-![Signup](Screenshots/signin.PNG "Signup")
+![Signup](Screenshots/signup.PNG "Signup")
 
 5. After logging in, you can select the country, period, and case type. Now we show some examples
 
