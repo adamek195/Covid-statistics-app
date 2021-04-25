@@ -26,15 +26,20 @@ namespace CovidStatisticsApp.DataProcessors
 
     public class PlotDataProcessor
     {
-        private readonly List<CovidStatisticsDataViewModel> OverallList;
+        private List<CovidStatisticsDataViewModel> OverallList;
 
         public PlotDataProcessor(List<CovidStatisticsDataViewModel> DataList)
         {
             this.OverallList = DataList;
         }
 
-        public List<int> ReturnCasesInGivenPeriodAndType(Period period, CaseType caseType)
+        public List<int> ReturnCasesInGivenPeriodAndType(Period period, CaseType caseType, bool IsDaily)
         {
+            if(IsDaily)
+            {
+                var dailyCasesProcessor = new DailyCasesProcessor(this.OverallList);
+                this.OverallList = dailyCasesProcessor.CalculateDailyCases();
+            }
             var caseTypeHelper = new CaseTypeHelper(this.OverallList);
             var listWithSpecifiedType = caseTypeHelper.GetSpecificCases(caseType);
             var periodHelper = new PeriodHelper(listWithSpecifiedType);

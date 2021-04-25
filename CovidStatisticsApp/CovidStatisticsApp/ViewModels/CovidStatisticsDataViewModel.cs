@@ -26,5 +26,19 @@ namespace CovidStatisticsApp.ViewModels
 
         [JsonProperty("Date")]
         public DateTime Date { get; set; }
+
+        public static CovidStatisticsDataViewModel operator -(CovidStatisticsDataViewModel modelFirst, CovidStatisticsDataViewModel modelSecond)
+        {
+            var resultModel = new CovidStatisticsDataViewModel()
+            {
+                DeathCases = modelFirst.DeathCases - modelSecond.DeathCases,
+                ConfirmedCases = modelFirst.ConfirmedCases - modelSecond.ConfirmedCases,
+                RecoveredCases = modelFirst.RecoveredCases - modelSecond.RecoveredCases,
+                ActiveCases = modelFirst.ActiveCases - modelSecond.ActiveCases
+            };
+            return resultModel;
+        }
     }
+
+
 }
