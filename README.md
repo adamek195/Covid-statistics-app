@@ -52,9 +52,9 @@ In the end, you can choose two option for your plot:
 
 ## How to run
 
-1. Open Microsoft SQL Server and run ScriptForDatabase from folder ScriptForDatabse. It will create a database for the Covis Statistics App.
+1. Open Microsoft SQL Server and run ScriptForDatabase from folder ScriptForDatabse. It will create a database for the Covis Statistics App
 
-2. Open Visual Studio 2019 and open Package Manager Console. In command line write:
+2. Open Visual Studio 2019 and open Package Manager Console. In command line write
 
 ```shell
 Update-Database
@@ -62,7 +62,37 @@ Update-Database
 
 It will update database in app.
 
-3. Run app in Visual Studio 2019. You will see sign in window:
+3. Run app in Visual Studio 2019. You will see sign in window
 
 ![Signin](Screenshots/signin.PNG "Signin")
 
+4. You can click button Change password or button Sign up if you want to create account
+
+![Signup](Screenshots/signin.PNG "Signup")
+
+5. After logging in, you can select the country, period, and case type. Now we show some examples
+
+6. Last month of total active cases in Poland
+
+![Active](Screenshots/active.PNG "Active")
+
+7. Last two weeks of total confirmed cases in Germany
+
+![Confirmed](Screenshots/confirmed.PNG "Confirmed")
+
+8. Overall of total deaths cases in India
+
+![Death](Screenshots/death.PNG "Death")
+
+9. Overall of total deaths cases in China
+
+![DeathChina](Screenshots/china.PNG "DeathChina")
+
+10. Overall of daily confirmed cases in USA
+
+![Daily](Screenshots/daily.PNG "Daily")
+
+## Authors
+
+- Adam Bednorz
+- Kajetan Zdanowicz
