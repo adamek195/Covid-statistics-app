@@ -57,7 +57,7 @@ In the end, you can choose two option for your plot:
 2. Open Visual Studio 2019 and open Package Manager Console. In command line write
 
 ```shell
-Update-Database
+PM> Update-Database
 ```
 
 It will update database in app.
