@@ -34,7 +34,7 @@ namespace CovidStatisticsApp.ViewModels
                 DeathCases = modelFirst.DeathCases - modelSecond.DeathCases,
                 ConfirmedCases = modelFirst.ConfirmedCases - modelSecond.ConfirmedCases,
                 RecoveredCases = modelFirst.RecoveredCases - modelSecond.RecoveredCases,
-                ActiveCases = modelFirst.ActiveCases = modelSecond.ActiveCases
+                ActiveCases = modelFirst.ActiveCases - modelSecond.ActiveCases
             };
             return resultModel;
         }
