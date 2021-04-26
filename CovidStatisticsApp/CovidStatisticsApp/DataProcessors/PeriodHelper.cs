@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.DataProcessors
 {
+    /// <summary>
+    /// Class used to cut given data respectively to given period
+    /// </summary>
     public class PeriodHelper
     {
         private readonly List<int> TwoWeeksList;
@@ -13,6 +16,10 @@ namespace CovidStatisticsApp.DataProcessors
         private readonly List<int> HalfYearList;
         private readonly List<int> OverallList;
 
+        /// <summary>
+        /// Constructor used also to calculate lists with specific sizes
+        /// </summary>
+        /// <param name="DataList">Given list of cases</param>
         public PeriodHelper(List<int> DataList)
         {
             this.TwoWeeksList = DataList.GetRange(DataList.Count - 14, 14);
@@ -21,6 +28,11 @@ namespace CovidStatisticsApp.DataProcessors
             this.OverallList = DataList;
         }
 
+        /// <summary>
+        /// Returns list respectively to given period
+        /// </summary>
+        /// <param name="period">Given period</param>
+        /// <returns>Calculated list with correct size</returns>
         public List<int> GetSpecificPeriod(Period period)
         {
             if (period == Period.TwoWeeks)

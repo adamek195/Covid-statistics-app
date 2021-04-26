@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.Client
 {
+    /// <summary>
+    /// ApiHelper - simple client for connecting with external API
+    /// </summary>
     public static class ApiHelper
     {
         public static HttpClient APIClient { get; set; }
 
+        /// <summary>
+        /// Initializes API client
+        /// </summary>
         public static void InitializeClient()
         {
             APIClient = new HttpClient();
