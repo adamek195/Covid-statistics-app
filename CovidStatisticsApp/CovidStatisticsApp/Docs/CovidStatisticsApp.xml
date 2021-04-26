@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CovidStatisticsApp</name>
+    </assembly>
+    <members>
+        <member name="T:CovidStatisticsApp.Client.ApiHelper">
+            <summary>
+            ApiHelper - simple client for connecting with external API
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Client.ApiHelper.InitializeClient">
+            <summary>
+            Initializes API client
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.CaseTypeHelper">
+            <summary>
+            Class used to get relevant data from given Covid case type
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.CaseTypeHelper.#ctor(System.Collections.Generic.List{CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel})">
+            <summary>
+            Constructor for class used also to extract specific cases
+            </summary>
+            <param name="DataList">Given data list</param>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.CaseTypeHelper.GetSpecificCases(CovidStatisticsApp.DataProcessors.CaseType)">
+            <summary>
+            Returns suitable cases list from given type
+            </summary>
+            <param name="type">Given case type</param>
+            <returns>Suitable case type</returns>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.CovidDataProcessor">
+            <summary>
+            Used to retrieve data from API
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.CovidDataProcessor.LoadCountryOverallStats(System.String)">
+            <summary>
+            Async method used to load data from API to model list
+            </summary>
+            <param name="country">Given country</param>
+            <returns>List containing full data</returns>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.DailyCasesProcessor">
+            <summary>
+            Used to return list of daily cases from given list
+            Daily data is calculated here, because API does not offer such data
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.DailyCasesProcessor.#ctor(System.Collections.Generic.List{CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel})">
+            <summary>
+            Constructor for class
+            </summary>
+            <param name="dataList">List of cases to be recalculated properly</param>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.DailyCasesProcessor.CalculateDailyCases">
+            <summary>
+            Calculates daily cases
+            </summary>
+            <returns>List of daily cases</returns>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.PeriodHelper">
+            <summary>
+            Class used to cut given data respectively to given period
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.PeriodHelper.#ctor(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Constructor used also to calculate lists with specific sizes
+            </summary>
+            <param name="DataList">Given list of cases</param>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.PeriodHelper.GetSpecificPeriod(CovidStatisticsApp.DataProcessors.Period)">
+            <summary>
+            Returns list respectively to given period
+            </summary>
+            <param name="period">Given period</param>
+            <returns>Calculated list with correct size</returns>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.Period">
+            <summary>
+            Enum used to store Period types
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.CaseType">
+            <summary>
+            Enum used to store CaseType types
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.DataProcessors.PlotDataProcessor">
+            <summary>
+            Class used to return sutiable list form given parameters
+            It benefits from CaseTypeHelper, PeriodHelper and DailyCasesProcessor
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.PlotDataProcessor.#ctor(System.Collections.Generic.List{CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel})">
+            <summary>
+            Class constructor
+            </summary>
+            <param name="DataList">Whole data about specific country</param>
+        </member>
+        <member name="M:CovidStatisticsApp.DataProcessors.PlotDataProcessor.ReturnCasesInGivenPeriodAndType(CovidStatisticsApp.DataProcessors.Period,CovidStatisticsApp.DataProcessors.CaseType,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="period">Given period</param>
+            <param name="caseType">Given case type</param>
+            <param name="IsDaily">Bool used to inform class if daily cases have to be calculated</param>
+            <returns>Suitable list ready to be displayed</returns>
+        </member>
+        <member name="T:CovidStatisticsApp.Infrastructure.MapperProfile">
+            <summary>
+            MapperProfile where Country is mapped on CountryViewModel
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Models.DataBaseContext">
+            <summary>
+            Class, where are defined database context and tables in the database
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Models.Entities.Country">
+            <summary>
+            Model of country in database
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Models.Entities.User">
+            <summary>
+            Model of user in database
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Repositories.CountriesRepository">
+            <summary>
+            Class defining methods related to communication with the database for the Countries table
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.CountriesRepository.GetCountryNames">
+            <summary>
+            implementation method for taking all names available in the country database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.CountriesRepository.GetCountries">
+            <summary>
+            implementation method for taking all countries available in the database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.CountriesRepository.FindCountryByName(System.String)">
+            <summary>
+            implementation of method for finding country by name in the country database
+            </summary>
+            <param name="countryName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CovidStatisticsApp.Repositories.Interfaces.ICountriesRepository">
+            <summary>
+            An interface that defines methods related to communication
+            with the database for the table Country
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.Interfaces.ICountriesRepository.GetCountryNames">
+            <summary>
+            abstract method for taking all names available in the country database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.Interfaces.ICountriesRepository.GetCountries">
+            <summary>
+            abstract method for taking all countries available in the database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.Interfaces.ICountriesRepository.FindCountryByName(System.String)">
+            <summary>
+            abstract method for finding country by name in the country database
+            </summary>
+            <param name="countryName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CovidStatisticsApp.Repositories.Interfaces.IUsersRepository">
+            <summary>
+            An interface that defines methods related to communication
+            with the database for the table User
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.Interfaces.IUsersRepository.SignIn(System.String,System.String,System.String)">
+            <summary>
+            abstract method for logging into the system
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.Interfaces.IUsersRepository.ChangePassword(System.String,System.String,System.String,System.String)">
+            <summary>
+            abstract method for changing user password
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="email"></param>
+            <param name="newPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.Interfaces.IUsersRepository.SignUp(System.String,System.String,System.String,System.String)">
+            <summary>
+            abstract method for signing up into the system
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CovidStatisticsApp.Repositories.Repository">
+            <summary>
+            An abstract class that has variables and/or methods that each repository should contain
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Repositories.UsersRepository">
+            <summary>
+            Class defining methods related to communication with the database for the Users table
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.UsersRepository.SignIn(System.String,System.String,System.String)">
+            <summary>
+            implementation of method for logging into the system
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.UsersRepository.ChangePassword(System.String,System.String,System.String,System.String)">
+            <summary>
+            implementation of method for changing user password
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="email"></param>
+            <param name="newPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.Repositories.UsersRepository.SignUp(System.String,System.String,System.String,System.String)">
+            <summary>
+            implementation of method for signing up into the system
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CovidStatisticsApp.ViewModels.CountryViewModel">
+            <summary>
+            Class Country is mapped on Class CountryViewModel
+            The user sees only CountryViewModel on the interface
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel">
+            <summary>
+            CovidStatisticsDataViewModel - loaded from Covid API
+            Used to store Covid data
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel.op_Subtraction(CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel,CovidStatisticsApp.ViewModels.CovidStatisticsDataViewModel)">
+            <summary>
+            Operator '-' overload for CovidStatisticsDataViewModel
+            Needed for simplification daily cases list calculating
+            </summary>
+            <param name="modelFirst">First model</param>
+            <param name="modelSecond">Second model</param>
+            <returns>Calculated difference</returns>
+        </member>
+        <member name="T:CovidStatisticsApp.Views.WindowChangePassword">
+            <summary>
+            Interaction logic for WindowChangePassword.xaml
+            </summary>
+            <summary>
+            WindowChangePassword
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowChangePassword.#ctor">
+            <summary>
+            Constructor for WindowChangePassword
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowChangePassword.ButtonNewPassword_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            logic for button NewPassword
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowChangePassword.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Views.WindowLogin">
+            <summary>
+            Interaction logic for WindowLogin.xaml
+            </summary>
+            <summary>
+            WindowLogin
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowLogin.#ctor">
+            <summary>
+            Contructor for WindowLogin
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowLogin.ButtonSignIn_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logic for button SignIn
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowLogin.ButtonChangePassword_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logic for button ChangePassword
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowLogin.ButtonSignUp_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logic for button SignUp
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowLogin.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Views.WindowSignUp">
+            <summary>
+            Interaction logic for WindowSignUp.xaml
+            </summary>
+            <summary>
+            WindowSignUp
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowSignUp.#ctor">
+            <summary>
+            Contructor for SingUp
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowSignUp.ButtonSignUp_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logic for button SingUp
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.Views.WindowSignUp.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.MainWindow">
+            <summary>
+            Interaction logic for WindowMain.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.#ctor">
+            <summary>
+            Constructor for MainWindow
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.MainWindow_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logic for loading MainWindow
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.LoadCovidData(System.String,CovidStatisticsApp.DataProcessors.Period,CovidStatisticsApp.DataProcessors.CaseType,System.Boolean)">
+            <summary>
+            Implementation of the asynchronous method to load Covid data from given parameters
+            </summary>
+            <param name="country">Given country</param>
+            <param name="period">Given period</param>
+            <param name="caseType">Given case type</param>
+            <param name="isDaily">Information if daily cases have to be calculated</param>
+            <returns></returns>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.formatter(System.Double)">
+            <summary>
+            implementation of static method for formating y-axes in oxyplot
+            </summary>
+            <param name="d">Number</param>
+            <returns>Formatted number</returns>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.ButtonSearchData_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logic for button SearchData
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.DataGridCountries_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Logic for DataGrid, where are countries from database
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event</param>
+        </member>
+        <member name="M:CovidStatisticsApp.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:CovidStatisticsApp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:CovidStatisticsApp.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:CovidStatisticsApp.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:CovidStatisticsApp.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
