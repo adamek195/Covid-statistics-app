@@ -31,9 +31,9 @@ namespace CovidStatisticsApp.ViewModels
         /// Operator '-' overload for CovidStatisticsDataViewModel
         /// Needed for simplification daily cases list calculating
         /// </summary>
-        /// <param name="modelFirst"></param>
-        /// <param name="modelSecond"></param>
-        /// <returns></returns>
+        /// <param name="modelFirst">First model</param>
+        /// <param name="modelSecond">Second model</param>
+        /// <returns>Calculated difference</returns>
         public static CovidStatisticsDataViewModel operator -(CovidStatisticsDataViewModel modelFirst, CovidStatisticsDataViewModel modelSecond)
         {
             var resultModel = new CovidStatisticsDataViewModel()

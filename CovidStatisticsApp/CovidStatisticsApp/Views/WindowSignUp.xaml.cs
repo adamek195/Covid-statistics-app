@@ -33,10 +33,10 @@ namespace CovidStatisticsApp.Views
         }
 
         /// <summary>
-        /// logic for button SingUp
+        /// Logic for button SingUp
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event</param>
         private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
         {
             string firstName = TextBoxFirstName.Text;

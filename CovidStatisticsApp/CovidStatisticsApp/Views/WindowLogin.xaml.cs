@@ -33,10 +33,10 @@ namespace CovidStatisticsApp.Views
         }
 
         /// <summary>
-        /// logic for button SignIn
+        /// Logic for button SignIn
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event</param>
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
         {
             string firstName = TextBoxFirstName.Text;
@@ -64,10 +64,10 @@ namespace CovidStatisticsApp.Views
         }
 
         /// <summary>
-        /// logic for button ChangePassword
+        /// Logic for button ChangePassword
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event</param>
         private void ButtonChangePassword_Click(object sender, RoutedEventArgs e)
         {
             WindowChangePassword windowChangePassword = new WindowChangePassword();
@@ -75,10 +75,10 @@ namespace CovidStatisticsApp.Views
         }
 
         /// <summary>
-        /// logic for button SignUp
+        /// Logic for button SignUp
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event</param>
         private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
         {
             WindowSignUp windowSignUp = new WindowSignUp();
