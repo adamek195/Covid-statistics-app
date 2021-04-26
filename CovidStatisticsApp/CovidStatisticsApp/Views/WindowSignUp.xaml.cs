@@ -22,6 +22,9 @@ namespace CovidStatisticsApp.Views
     {
         private readonly UsersRepository usersRepository;
 
+        /// <summary>
+        /// Contructor for SingUp
+        /// </summary>
         public WindowSignUp()
         {
             usersRepository = new UsersRepository();
@@ -29,6 +32,11 @@ namespace CovidStatisticsApp.Views
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
+        /// <summary>
+        /// logic for button SingUp
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
         {
             string firstName = TextBoxFirstName.Text;

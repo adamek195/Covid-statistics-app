@@ -15,10 +15,16 @@ using System.Windows.Shapes;
 
 namespace CovidStatisticsApp.Views
 {
+    /// <summary>
+    /// Interaction logic for WindowLogin.xaml
+    /// </summary>
     public partial class WindowLogin : Window
     {
         private readonly UsersRepository usersRepository;
 
+        /// <summary>
+        /// Contructor for WindowLogin
+        /// </summary>
         public WindowLogin()
         {
             usersRepository = new UsersRepository();
@@ -26,6 +32,11 @@ namespace CovidStatisticsApp.Views
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
+        /// <summary>
+        /// logic for button SignIn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
         {
             string firstName = TextBoxFirstName.Text;
@@ -52,12 +63,22 @@ namespace CovidStatisticsApp.Views
             }
         }
 
+        /// <summary>
+        /// logic for button ChangePassword
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonChangePassword_Click(object sender, RoutedEventArgs e)
         {
             WindowChangePassword windowChangePassword = new WindowChangePassword();
             windowChangePassword.Show();
         }
 
+        /// <summary>
+        /// logic for button SignUp
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
         {
             WindowSignUp windowSignUp = new WindowSignUp();

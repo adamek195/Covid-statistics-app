@@ -22,6 +22,9 @@ using System.Windows.Shapes;
 
 namespace CovidStatisticsApp
 {
+    /// <summary>
+    /// Interaction logic for WindowMain.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly CountriesRepository countriesRepository;
@@ -29,6 +32,9 @@ namespace CovidStatisticsApp
         public PlotModel CovidModel { get; set; }
         public PlotModel plot = new PlotModel { };
 
+        /// <summary>
+        /// Contrustor for MainWindow
+        /// </summary>
         public MainWindow()
         {
             this.CovidModel = plot;
@@ -37,6 +43,11 @@ namespace CovidStatisticsApp
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
+        /// <summary>
+        /// logic for loading MainWindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataGridCountries.ItemsSource = countriesRepository.GetCountries();
@@ -44,6 +55,14 @@ namespace CovidStatisticsApp
             AutoCompleteBoxCountry.ItemsSource = countriesRepository.GetCountryNames();
         }
 
+        /// <summary>
+        /// implementation of the asynchronous method to take Covid data for specific parameters
+        /// </summary>
+        /// <param name="country"></param>
+        /// <param name="period"></param>
+        /// <param name="caseType"></param>
+        /// <param name="isDaily"></param>
+        /// <returns></returns>
         private async Task<List<int>> LoadCovidData(string country, Period period, CaseType caseType, bool isDaily)
         {
             var statisticsList = await CovidDataProcessor.LoadCountryOverallStats(country);
@@ -52,6 +71,11 @@ namespace CovidStatisticsApp
             return covidData;
         }
 
+        /// <summary>
+        /// implementation of static method for formating y-axes in oxyplot
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         private static string formatter(double d)
         {
             if (d < 1E3)
@@ -76,6 +100,11 @@ namespace CovidStatisticsApp
             }
         }
 
+        /// <summary>
+        /// logic for button SearchData
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ButtonSearchData_Click(object sender, RoutedEventArgs e)
         {
             CovidModel.InvalidatePlot(true);
@@ -195,6 +224,11 @@ namespace CovidStatisticsApp
             }
         }
 
+        /// <summary>
+        /// logic for DataGrid, where are Countries from database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGridCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CountryViewModel countryViewModel = (CountryViewModel)DataGridCountries.CurrentCell.Item;

@@ -26,6 +26,12 @@ namespace CovidStatisticsApp.ViewModels
         [JsonProperty("Date")]
         public DateTime Date { get; set; }
 
+        /// <summary>
+        /// Operator '-' overload for CovidStatisticsDataViewModel
+        /// </summary>
+        /// <param name="modelFirst"></param>
+        /// <param name="modelSecond"></param>
+        /// <returns></returns>
         public static CovidStatisticsDataViewModel operator -(CovidStatisticsDataViewModel modelFirst, CovidStatisticsDataViewModel modelSecond)
         {
             var resultModel = new CovidStatisticsDataViewModel()

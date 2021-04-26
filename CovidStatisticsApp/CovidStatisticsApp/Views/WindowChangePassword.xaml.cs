@@ -22,6 +22,9 @@ namespace CovidStatisticsApp.Views
     {
         private readonly UsersRepository usersRepository;
 
+        /// <summary>
+        /// Constructor for WindowChangePassword
+        /// </summary>
         public WindowChangePassword()
         {
             InitializeComponent();
@@ -29,6 +32,11 @@ namespace CovidStatisticsApp.Views
             usersRepository = new UsersRepository();
         }
 
+        /// <summary>
+        /// logic for button NewPassword
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonNewPassword_Click(object sender, RoutedEventArgs e)
         {
             string firstName = TextBoxFirstName.Text;
