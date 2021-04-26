@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.ViewModels
 {
+    /// <summary>
+    /// CovidStatisticsDataViewModel which is taking from Covid API
+    /// </summary>
     public class CovidStatisticsDataViewModel
     {
         [JsonProperty("Confirmed")]
