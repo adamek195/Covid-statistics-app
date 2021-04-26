@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.ViewModels
 {
+    /// <summary>
+    /// CovidStatisticsDataViewModel - loaded from Covid API
+    /// Used to store Covid data
+    /// </summary>
     public class CovidStatisticsDataViewModel
     {
         [JsonProperty("Confirmed")]
@@ -27,6 +27,13 @@ namespace CovidStatisticsApp.ViewModels
         [JsonProperty("Date")]
         public DateTime Date { get; set; }
 
+        /// <summary>
+        /// Operator '-' overload for CovidStatisticsDataViewModel
+        /// Needed for simplification daily cases list calculating
+        /// </summary>
+        /// <param name="modelFirst">First model</param>
+        /// <param name="modelSecond">Second model</param>
+        /// <returns>Calculated difference</returns>
         public static CovidStatisticsDataViewModel operator -(CovidStatisticsDataViewModel modelFirst, CovidStatisticsDataViewModel modelSecond)
         {
             var resultModel = new CovidStatisticsDataViewModel()

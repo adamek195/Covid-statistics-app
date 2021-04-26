@@ -5,6 +5,9 @@ using AutoMapper;
 
 namespace CovidStatisticsApp.Infrastructure
 {
+    /// <summary>
+    /// MapperProfile where Country is mapped on CountryViewModel
+    /// </summary>
     class MapperProfile : Profile
     {
         public MapperProfile()

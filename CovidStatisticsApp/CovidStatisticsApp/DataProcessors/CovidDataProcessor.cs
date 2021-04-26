@@ -11,8 +11,16 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.DataProcessors
 {
+    /// <summary>
+    /// Used to retrieve data from API
+    /// </summary>
     public class CovidDataProcessor
     {
+        /// <summary>
+        /// Async method used to load data from API to model list
+        /// </summary>
+        /// <param name="country">Given country</param>
+        /// <returns>List containing full data</returns>
         public static async Task<List<CovidStatisticsDataViewModel>> LoadCountryOverallStats(string country)
         {
             ApiHelper.InitializeClient();

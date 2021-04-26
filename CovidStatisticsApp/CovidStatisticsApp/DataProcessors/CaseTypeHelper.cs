@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.DataProcessors
 {
-
+    /// <summary>
+    /// Class used to get relevant data from given Covid case type
+    /// </summary>
     public class CaseTypeHelper
     {
 
@@ -16,6 +18,10 @@ namespace CovidStatisticsApp.DataProcessors
         private readonly List<int> RecoveredCases;
         private readonly List<int> ConfirmedCases;
 
+        /// <summary>
+        /// Constructor for class used also to extract specific cases
+        /// </summary>
+        /// <param name="DataList">Given data list</param>
         public CaseTypeHelper(List<CovidStatisticsDataViewModel> DataList)
         {
             this.DeathCases = DataList.Select(element => element.DeathCases).ToList();
@@ -24,6 +30,11 @@ namespace CovidStatisticsApp.DataProcessors
             this.ConfirmedCases = DataList.Select(element => element.ConfirmedCases).ToList();
         }
 
+        /// <summary>
+        /// Returns suitable cases list from given type
+        /// </summary>
+        /// <param name="type">Given case type</param>
+        /// <returns>Suitable case type</returns>
         public List<int> GetSpecificCases(CaseType type)
         {
             if(type == CaseType.Active)

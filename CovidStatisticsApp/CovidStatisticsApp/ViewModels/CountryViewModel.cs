@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.ViewModels
 {
+    /// <summary>
+    /// Class Country is mapped on Class CountryViewModel
+    /// The user sees only CountryViewModel on the interface
+    /// </summary>
     public class CountryViewModel
     {
         public string Name { get; set; }

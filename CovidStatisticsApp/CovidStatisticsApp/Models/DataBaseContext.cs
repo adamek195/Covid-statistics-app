@@ -3,6 +3,9 @@ using System.Data.Entity;
 
 namespace CovidStatisticsApp.Models
 {
+    /// <summary>
+    /// Class, where are defined database context and tables in the database
+    /// </summary>
     public class DataBaseContext: DbContext
     {
         public DataBaseContext() : base("ConnectionString")
