@@ -4,7 +4,8 @@ using System;
 namespace CovidStatisticsApp.ViewModels
 {
     /// <summary>
-    /// CovidStatisticsDataViewModel which is taking from Covid API
+    /// CovidStatisticsDataViewModel - loaded from Covid API
+    /// Used to store Covid data
     /// </summary>
     public class CovidStatisticsDataViewModel
     {
@@ -28,6 +29,7 @@ namespace CovidStatisticsApp.ViewModels
 
         /// <summary>
         /// Operator '-' overload for CovidStatisticsDataViewModel
+        /// Needed for simplification daily cases list calculating
         /// </summary>
         /// <param name="modelFirst"></param>
         /// <param name="modelSecond"></param>
