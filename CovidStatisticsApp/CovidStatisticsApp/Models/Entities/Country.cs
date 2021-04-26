@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.Models.Entities
 {
+    /// <summary>
+    /// Model of country in database
+    /// </summary>
     public class Country
     {
         [Key]

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CovidStatisticsApp.Models.Entities
 {
+    /// <summary>
+    /// Model of user in database
+    /// </summary>
     public class User
     {
         [Key]
