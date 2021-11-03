@@ -5,7 +5,7 @@ The project is a Covid statistics app. It was made for the .Net and Java program
 
 ## Requirements
 
-- Visual Studio 2019
+- .NET Framework 4.7.2
 - Microsoft SQL Server
 
 ## Packages
